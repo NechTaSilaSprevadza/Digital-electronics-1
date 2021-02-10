@@ -4,11 +4,11 @@
 
 2. Verification of De Morgan's laws of function f(c,b,a)
 
- * Logical equations
+* Logical equations
 
 ![Equation](equation.png)
 
- * Table with logical values
+* Table with logical values
 
 | **c** | **b** |**a** | **f(c,b,a)** |
 | :-: | :-: | :-: | :-: |
@@ -21,7 +21,7 @@
 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 0 |
 
- * Listing of VHDL code `design.vhd`
+* Listing of VHDL code `design.vhd`
 
 ```bash
 ------------------------------------------------------------------------
@@ -71,25 +71,25 @@ begin
 end architecture dataflow;
 ```
 
- * Screenshot with simulated time waveforms
+* Screenshot with simulated time waveforms
 
 ![Screenshot](screen.png)
 
- * Link to public EDA Playground example: [Playground](https://www.edaplayground.com/x/AwWm)
+* Link to public EDA Playground example: [Playground](https://www.edaplayground.com/x/AwWm)
 
 2. Verification of Distributive laws
 
- * Listing of VHDL code `design.vhd`
+* Listing of VHDL code `design.vhd`
 
 ```bash
 
 ```
 
- * Screenshot with simulated time waveforms
+* Screenshot with simulated time waveforms
 
 ![Screenshot2](screen2.png)
 
- * Link to public EDA Playground example: [Playground]()
+* Link to public EDA Playground example: [Playground]()
 
 
 
