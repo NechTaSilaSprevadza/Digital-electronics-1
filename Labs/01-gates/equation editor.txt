@@ -1,0 +1,5 @@
+\begin{align*}
+    f(c,b,a) =&~ \overline{b}\ a + \overline{c}\ \overline{b}\\
+    f(c,b,a)_{\textup{NAND}} =&~ \overline{b \overline{a}\ \overline{c}\ \overline{b}}\\
+    f(c,b,a)_{\textup{NOR}} =&~ \overline{b + \overline{a}\ }\ + \overline{\overline{c}\ + \overline{b}\ }\
+\end{align*}
