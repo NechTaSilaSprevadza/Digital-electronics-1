@@ -1,6 +1,8 @@
 # 01-gates
 
-1. [Repository link](https://github.com/NechTaSilaSprevadza/Digital-electronics-1)
+1. Repository link: [https://github.com/NechTaSilaSprevadza/Digital-electronics-1](https://github.com/NechTaSilaSprevadza/Digital-electronics-1)
+
+
 
 2. Verification of De Morgan's laws of function f(c,b,a)
 
@@ -76,6 +78,8 @@ end architecture dataflow;
 ![Screenshot](screen.png)
 
 * Link to public EDA Playground example: [Playground](https://www.edaplayground.com/x/AwWm)
+
+
 
 3. Verification of Distributive laws
 
