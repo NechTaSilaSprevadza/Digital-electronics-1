@@ -70,13 +70,13 @@ PoS_less = (A1+A0).(/B1+/B0).(/B1+A0).(/B1+A1).(/B0+A1)
 
 
 
-* Listing of VHDL code
+* VHDL code
 
 ```bash
 ------------------------------------------------------------------------
 --
--- Example of basic OR, AND, XOR gates.
--- Nexys A7-50T, Vivado v2020.1, EDA Playground
+-- Example of 4-bit binary comparator using the when/else assignment.
+-- EDA Playground
 --
 -- Copyright (c) 2020-2021 Adam Budac - student
 -- Copyright (c) 2019-2020 Tomas Fryza - teacher
@@ -85,42 +85,172 @@ PoS_less = (A1+A0).(/B1+/B0).(/B1+A0).(/B1+A1).(/B0+A1)
 --
 ------------------------------------------------------------------------
 
-library ieee;               -- Standard library
-use ieee.std_logic_1164.all;-- Package for data types and logic operations
+library ieee;
+use ieee.std_logic_1164.all;
 
 ------------------------------------------------------------------------
--- Entity declaration for basic gates
+-- Entity declaration for 4-bit binary comparator
 ------------------------------------------------------------------------
-entity gates is
+entity comparator_4bit is
     port(
-        x_i     : in  std_logic;         -- Data input
-        y_i     : in  std_logic;         -- Data input
-        z_i     : in  std_logic;         -- Data input
-        f1_o    : out std_logic;         -- output function 1
-        f2_o    : out std_logic;         -- output function 2
-        f3_o    : out std_logic;         -- output function 3
-        f4_o    : out std_logic          -- output function 3
-);
-end entity gates;
+        a_i           : in  std_logic_vector(4 - 1 downto 0);
+        b_i           : in  std_logic_vector(4 - 1 downto 0);
+        B_greater_A_o : out std_logic;       -- B < A
+        B_equals_A_o  : out std_logic;       -- B = A
+        B_less_A_o    : out std_logic        -- B > A
+    );
+end entity comparator_4bit;
 
 ------------------------------------------------------------------------
--- Architecture body for basic gates
+-- Architecture body for 4-bit binary comparator
 ------------------------------------------------------------------------
-architecture dataflow of gates is
+architecture Behavioral of comparator_4bit is
 begin
-    f1_o <= (x_i and y_i) or (x_i and z_i);
-    f2_o <= x_i and (y_i or z_i);
-    f3_o <= (x_i or y_i) and (x_i or z_i);
-    f4_o <= x_i or (y_i and z_i);
-    
-end architecture dataflow;
+    B_greater_A_o <= '1' when (b_i > a_i) else '0';
+    B_equals_A_o  <= '1' when (b_i = a_i) else '0';
+    B_less_A_o    <= '1' when (b_i < a_i) else '0';
+end architecture Behavioral;
 ```
+
+
+
+* VHDL testbench
+
+```bash
+------------------------------------------------------------------------
+--
+-- Testbench for 4-bit binary comparator.
+-- EDA Playground
+--
+-- Copyright (c) 2020-2021 Adam Budac - student
+-- Copyright (c) 2019-2020 Tomas Fryza - teacher
+-- Dept. of Radio Electronics, Brno University of Technology, Czechia
+-- This work is licensed under the terms of the MIT license.
+--
+------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+------------------------------------------------------------------------
+-- Entity declaration for testbench
+------------------------------------------------------------------------
+entity tb_comparator_4bit is
+    -- Entity of testbench is always empty
+end entity tb_comparator_4bit;
+
+------------------------------------------------------------------------
+-- Architecture body for testbench
+------------------------------------------------------------------------
+architecture testbench of tb_comparator_4bit is
+
+    -- Local signals
+    signal s_a       : std_logic_vector(4 - 1 downto 0);
+    signal s_b       : std_logic_vector(4 - 1 downto 0);
+    signal s_B_greater_A : std_logic;
+    signal s_B_equals_A  : std_logic;
+    signal s_B_less_A    : std_logic;
+
+begin
+    -- Connecting testbench signals with comparator_4bit entity (Unit Under Test)
+    uut_comparator_4bit : entity work.comparator_4bit
+        port map(
+            a_i           => s_a,
+            b_i           => s_b,
+            B_greater_A_o => s_B_greater_A,
+            B_equals_A_o  => s_B_equals_A,
+            B_less_A_o    => s_B_less_A
+        );
+
+    --------------------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------------------
+    p_stimulus : process
+    begin
+        -- Report a note at the begining of stimulus process
+        report "Stimulus process started" severity note;
+        -- First test values
+        s_b <= "0000"; s_a <= "0000"; wait for 100 ns;
+        -- Expected output
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '1') and (s_B_less_A = '0'))
+        -- If false, then report an error
+        report "Test failed for input combination: 0000, 0000" severity error;
+        
+        -- WRITE OTHER TESTS HERE
+        s_b <= "0000"; s_a <= "0001"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
+        report "Test failed for input combination: 0000, 0001" severity error;
+
+        s_b <= "0000"; s_a <= "0010"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
+        report "Test failed for input combination: 0000, 0010" severity error;
+
+        s_b <= "0000"; s_a <= "0011"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
+        report "Test failed for input combination: 0000, 0011" severity error;
+
+        s_b <= "0001"; s_a <= "0000"; wait for 100 ns;
+        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0001, 0000" severity error;
+
+        s_b <= "0001"; s_a <= "0001"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '1') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0001, 0001" severity error;
+
+        s_b <= "0001"; s_a <= "0010"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
+        report "Test failed for input combination: 0001, 0010" severity error;
+
+        s_b <= "0001"; s_a <= "0011"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
+        report "Test failed for input combination: 0001, 0011" severity error;
+
+        s_b <= "0010"; s_a <= "0000"; wait for 100 ns;
+        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0010, 0000" severity error;
+
+        s_b <= "0010"; s_a <= "0001"; wait for 100 ns;
+        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0010, 0001" severity error;
+
+        s_b <= "0010"; s_a <= "0010"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '1') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0010, 0010" severity error;
+
+        s_b <= "0010"; s_a <= "0011"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
+        report "Test failed for input combination: 0010, 0011" severity error;
+
+        s_b <= "0011"; s_a <= "0000"; wait for 100 ns;
+        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0011, 0000" severity error;
+
+        s_b <= "0011"; s_a <= "0001"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '1') and (s_B_less_A = '0')) -- mistake
+        report "Test failed for input combination: 0011, 0001" severity error;
+
+        s_b <= "0011"; s_a <= "0010"; wait for 100 ns;
+        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0011, 0010" severity error;
+
+        s_b <= "0011"; s_a <= "0011"; wait for 100 ns;
+        assert ((s_B_greater_A = '0') and (s_B_equals_A = '1') and (s_B_less_A = '0'))
+        report "Test failed for input combination: 0011, 0011" severity error;
+
+        -- Report a note at the end of stimulus process
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
+
+end architecture testbench;
+```
+
 
 * Screenshot with simulated time waveforms
 
-![Screenshot2](screen2.png)
+![Screenshot](screen.png)
 
-* Link to public EDA Playground example: [Playground](https://www.edaplayground.com/x/jtKs)
+* Link to public EDA Playground example: [Playground](https://www.edaplayground.com/x/wFvv)
 
 
 
