@@ -2,6 +2,8 @@
 
 1. Preparation tasks
 
+
+
 | **Dec. equivalent** | **B[1:0]** | **A[1:0]** | **B is greater than A** | **B equals A** | **B is less than A** |
 | :-: | :-: | :-: | :-: | :-: | :-: |
 | 0 | 0 0 | 0 0 | 0 | 1 | 0 |
@@ -23,6 +25,8 @@
 
 2. 2-bit comparator
 
+
+
 * Equals function
 
 |    | 00 | 10 | 11 | 01 |
@@ -31,6 +35,8 @@
 | **10** | 0 | 1 | 0 | 0 |
 | **11** | 0 | 0 | 1 | 0 |
 | **01** | 0 | 0 | 0 | 1 |
+
+
 
 * Greater function
 
@@ -41,6 +47,8 @@
 | **11** | 1 | 1 | 0 | 1 |
 | **01** | 1 | 0 | 0 | 0 |
 
+
+
 * Less function
 
 |    | 00 | 10 | 11 | 01 |
@@ -50,11 +58,17 @@
 | **11** | 0 | 0 | 0 | 0 |
 | **01** | 0 | 1 | 1 | 0 |
 
+
+
 SoP_geater = B1./A1 + B0./A1./A0
 
 PoS_less = (A1+A0).(/B1+/B0).(/B1+A0).(/B1+A1).(/B0+A1)
 
+
+
 3. 4-bit binary comparator
+
+
 
 * Listing of VHDL code
 
