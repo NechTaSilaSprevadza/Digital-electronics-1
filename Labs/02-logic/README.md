@@ -248,7 +248,7 @@ end architecture testbench;
 
 * Screenshot with simulated time waveforms
 
-![Screenshot](screen.png)
+![Screenshot](Screen.png)
 
 * Link to public EDA Playground example: [Playground](https://www.edaplayground.com/x/wFvv)
 
