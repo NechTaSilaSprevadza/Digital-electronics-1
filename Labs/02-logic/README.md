@@ -1,0 +1,112 @@
+# 02-logic
+
+1. Preparation tasks
+
+| **Dec. equivalent** | **B[1:0]** | **A[1:0]** | **B is greater than A** | **B equals A** | **B is less than A** |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| 0 | 0 0 | 0 0 | 0 | 1 | 0 |
+| 1 | 0 0 | 0 1 | 0 | 0 | 1 |
+| 2 | 0 0 | 1 0 | 0 | 0 | 1 |
+| 3 | 0 0 | 1 1 | 0 | 0 | 1 |
+| 4 | 0 1 | 0 0 | 1 | 0 | 0 |
+| 5 | 0 1 | 0 1 | 0 | 1 | 0 |
+| 6 | 0 1 | 1 0 | 0 | 0 | 1 |
+| 7 | 0 1 | 1 1 | 0 | 0 | 1 |
+| 8 | 1 0 | 0 0 | 1 | 0 | 0 |
+| 9 | 1 0 | 0 1 | 1 | 0 | 0 |
+| 10 | 1 0 | 1 0 | 0 | 1 | 0 |
+| 11 | 1 0 | 1 1 | 0 | 0 | 1 |
+| 12 | 1 1 | 0 0 | 1 | 0 | 0 |
+| 13 | 1 1 | 0 1 | 1 | 0 | 0 |
+| 14 | 1 1 | 1 0 | 1 | 0 | 0 |
+| 15 | 1 1 | 1 1 | 0 | 1 | 0 |
+
+2. 2-bit comparator
+
+* Equals function
+
+|    | 00 | 10 | 11 | 01 |
+| 00 | 1 | 0 | 0 | 0 |
+| 10 | 0 | 1 | 0 | 0 |
+| 11 | 0 | 0 | 1 | 0 |
+| 01 | 0 | 0 | 0 | 1 |
+
+* Greater function
+
+|    | 00 | 10 | 11 | 01 |
+| 00 | 0 | 0 | 0 | 0 |
+| 10 | 1 | 0 | 0 | 1 |
+| 11 | 1 | 1 | 0 | 1 |
+| 01 | 1 | 0 | 0 | 0 |
+
+* Less function
+
+|    | 00 | 10 | 11 | 01 |
+| 00 | 0 | 1 | 1 | 1 |
+| 10 | 0 | 0 | 1 | 0 |
+| 11 | 0 | 0 | 0 | 0 |
+| 01 | 0 | 1 | 1 | 0 |
+
+SoP_geater = B1*/A1 + B0*/A1*/A0
+
+PoS_less = (A1+A0)*(/B1+/B0)*(/B1+A0)*(/B1+A1)*(/B0+A1)
+
+3. 4-bit binary comparator
+
+* Listing of VHDL code
+
+```bash
+------------------------------------------------------------------------
+--
+-- Example of basic OR, AND, XOR gates.
+-- Nexys A7-50T, Vivado v2020.1, EDA Playground
+--
+-- Copyright (c) 2020-2021 Adam Budac - student
+-- Copyright (c) 2019-2020 Tomas Fryza - teacher
+-- Dept. of Radio Electronics, Brno University of Technology, Czechia
+-- This work is licensed under the terms of the MIT license.
+--
+------------------------------------------------------------------------
+
+library ieee;               -- Standard library
+use ieee.std_logic_1164.all;-- Package for data types and logic operations
+
+------------------------------------------------------------------------
+-- Entity declaration for basic gates
+------------------------------------------------------------------------
+entity gates is
+    port(
+        x_i     : in  std_logic;         -- Data input
+        y_i     : in  std_logic;         -- Data input
+        z_i     : in  std_logic;         -- Data input
+        f1_o    : out std_logic;         -- output function 1
+        f2_o    : out std_logic;         -- output function 2
+        f3_o    : out std_logic;         -- output function 3
+        f4_o    : out std_logic          -- output function 3
+);
+end entity gates;
+
+------------------------------------------------------------------------
+-- Architecture body for basic gates
+------------------------------------------------------------------------
+architecture dataflow of gates is
+begin
+    f1_o <= (x_i and y_i) or (x_i and z_i);
+    f2_o <= x_i and (y_i or z_i);
+    f3_o <= (x_i or y_i) and (x_i or z_i);
+    f4_o <= x_i or (y_i and z_i);
+    
+end architecture dataflow;
+```
+
+* Screenshot with simulated time waveforms
+
+![Screenshot2](screen2.png)
+
+* Link to public EDA Playground example: [Playground](https://www.edaplayground.com/x/jtKs)
+
+
+
+
+
+
