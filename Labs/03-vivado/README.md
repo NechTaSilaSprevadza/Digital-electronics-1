@@ -55,6 +55,8 @@ end architecture Behavioral;
 
 3. A Vivado tutorial
 
+```bash
+
 ---- !!!! Začiatok !!!! ----
 
 File -> Project New -> Next
@@ -112,6 +114,9 @@ Program and Debug -> Generate bitstream -> OK (Zobrazenie priebehu na Project su
                                               Open target -> Auto connect -> Hardware: nexysXYZ -> Program device -> Bitstream file -> Program -> OK
 
 ---- !!!! Hotovo !!!! ----
+
+```
+
 
 
 
