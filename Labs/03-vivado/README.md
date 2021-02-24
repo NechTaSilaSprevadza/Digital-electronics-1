@@ -55,67 +55,65 @@ end architecture Behavioral;
 
 3. A Vivado tutorial
 
-```bash
-
 ---- !!!! Začiatok !!!! ----
 
-File -> Project New -> Next
+* File -> Project New -> Next
 
-Project name: comparator, multiplexer (alebo niečo výstižné)
+* Project name: comparator, multiplexer (alebo niečo výstižné)
 
-Project location: D:/Adam/Dokumenty/kola/VUT/semester 6/digitalka 1/cvika/Repozitar/Digital-electronics-1/Labs/0x-XYZ
+* Project location: D:/Adam/Dokumenty/kola/VUT/semester 6/digitalka 1/cvika/Repozitar/Digital-electronics-1/Labs/0x-XYZ
 
-Create project subdirectory: odfajknuté -> Next
+* Create project subdirectory: odfajknuté -> Next
 
-RTL Project, ďalej nič neodfajknuté -> Next
+* RTL Project, ďalej nič neodfajknuté -> Next
 
-Target language: VHDL
+* Target language: VHDL
 
-Simulator language: VHDL
+* Simulator language: VHDL
 
-Add sources: Create File -> File type: VHDL
+* Add sources: Create File -> File type: VHDL
 
-                            File name: comparator_2bit, mux_2bit_4to1 (je to v podstate design.vhd) -> OK -> Next
+*                             File name: comparator_2bit, mux_2bit_4to1 (je to v podstate design.vhd) -> OK -> Next
 
-Add constraints: -> Next
+* Add constraints: -> Next
 
-Default Part: Boards -> Search -> Nexys A7-50T -> klik do jeho okna na zvýraznenie -> Next -> Finish
+* Default Part: Boards -> Search -> Nexys A7-50T -> klik do jeho okna na zvýraznenie -> Next -> Finish
 
-Define module: Entity name: comparator_2bit, mux_2bit_4to1 (je to v podstate design.vhd)
+* Define module: Entity name: comparator_2bit, mux_2bit_4to1 (je to v podstate design.vhd)
 
-               Architecture name: Behavioral comparator_2bit, mux_2bit_4to1 (je to v podstate design.vhd) -> OK
+*                Architecture name: Behavioral comparator_2bit, mux_2bit_4to1 (je to v podstate design.vhd) -> OK
 
-Sources: Design sources: XYZ(design).vhd (vytvoreny design)
+* Sources: Design sources: XYZ(design).vhd (vytvoreny design)
 
-         + -> Add or create simulation sources -> Next -> Create file -> File type: VHDL
+*          + -> Add or create simulation sources -> Next -> Create file -> File type: VHDL
 
-         File name: tb_comparator_2bit, tb_mux_2bit_4to1 (je to v podstate testbench.vhd) -> OK -> Finish
+*          File name: tb_comparator_2bit, tb_mux_2bit_4to1 (je to v podstate testbench.vhd) -> OK -> Finish
 
-Define Module: Entity name: tb_comparator_2bit, tb_mux_2bit_4to1 (je to v podstate testbench.vhd) -> OK -> Yes (ak sa opýta)
+* Define Module: Entity name: tb_comparator_2bit, tb_mux_2bit_4to1 (je to v podstate testbench.vhd) -> OK -> Yes (ak sa opýta)
 		
-Sources: Simulation sources: tb_XYZ(testbench).vhd (vytvoreny testbench)
+* Sources: Simulation sources: tb_XYZ(testbench).vhd (vytvoreny testbench)
 
-napísať program pre design.vhd a testbench.vhd, po dvojkliku na XYZ.vhd sa to otvorí na edit, kde sa to dá hneď uložiť disketkou
+* napísať program pre design.vhd a testbench.vhd, po dvojkliku na XYZ.vhd sa to otvorí na edit, kde sa to dá hneď uložiť disketkou
 
-Simulation -> Run Simulation -> Run Behavioral Simulation -> Zoom fit
+* Simulation -> Run Simulation -> Run Behavioral Simulation -> Zoom fit
 
-Sources: + -> Add or create constraints -> Next -> Create file -> File type: VHDL
+* Sources: + -> Add or create constraints -> Next -> Create file -> File type: VHDL
 
-                                                                  File name: nexys-a7-50t (cpu na vyvojovom kite.xdc) -> OK -> Finish
+*                                                                   File name: nexys-a7-50t (cpu na vyvojovom kite.xdc) -> OK -> Finish
 
-Constraints: nexys-a7-50t.xdc (sluzi na definovanie pouzitych pinov na vyvojovom kite)
+* Constraints: nexys-a7-50t.xdc (sluzi na definovanie pouzitych pinov na vyvojovom kite)
 
-definovať použité piny nexys-a7-50t.xdc, po dvojkliku na sa to otvorí na edit, kde sa to dá hneď uložiť disketkou
+* definovať použité piny nexys-a7-50t.xdc, po dvojkliku na sa to otvorí na edit, kde sa to dá hneď uložiť disketkou
 
-Program and Debug -> Generate bitstream -> OK (Zobrazenie priebehu na Project summary, nasjkôr prebehne syntéza a implementácia) -> Bitstream generation completed: 
+* Program and Debug -> Generate bitstream -> OK (Zobrazenie priebehu na Project summary, nasjkôr prebehne syntéza a implementácia) -> Bitstream generation completed: 
 
-                     Open Hardware Manager -> Open target -> Next -> Next -> Finish
+*                      Open Hardware Manager -> Open target -> Next -> Next -> Finish
 
-                                              Open target -> Auto connect -> Hardware: nexysXYZ -> Program device -> Bitstream file -> Program -> OK
+*                                               Open target -> Auto connect -> Hardware: nexysXYZ -> Program device -> Bitstream file -> Program -> OK
 
----- !!!! Hotovo !!!! ----
+* ---- !!!! Hotovo !!!! ----
 
-```
+
 
 
 
