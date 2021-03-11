@@ -250,6 +250,6 @@ end architecture Behavioral;
 
 * Sketch of the top layer including both counters
 
-![Sketch](Sketch.jpg)
+![Sketch](Sketch2.jpg)
 
 
