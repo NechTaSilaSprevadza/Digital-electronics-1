@@ -1,0 +1,6 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+Note: Stimulus process started
+Time: 0 ps  Iteration: 0  Process: /tp_top/p_stimulus  File: D:/Adam/Dokumenty/kola/VUT/semester 6/digitalka 1/cvika/Repozitar/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tp_top.vhd
+Note: Stimulus process finished
+Time: 600 ns  Iteration: 0  Process: /tp_top/p_stimulus  File: D:/Adam/Dokumenty/kola/VUT/semester 6/digitalka 1/cvika/Repozitar/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tp_top.vhd
