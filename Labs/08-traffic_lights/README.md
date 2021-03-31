@@ -1,4 +1,4 @@
-# 07-ffs
+# 08-traffic_lights
 
 1. Preparation tasks
 
