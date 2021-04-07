@@ -93,8 +93,8 @@ Zapojenie Hallovej sondy
 
 ## Referencie
 
-   1. 
-   2. 
-   3. 
-   4. 
+   1. [Arty A7 Reference Manual](https://reference.digilentinc.com/reference/programmable-logic/arty-a7/reference-manual)
+   2. [7SEG4 PMOD](http://fpga.fm4dd.com/?pmod/7seg4)
+   3. [Linear Hall Effect Sensor Module](https://protosupplies.com/product/linear-hall-effect-sensor-module/)
+   4. [Method Draw Vector Editor](https://editor.method.ac/)
 
