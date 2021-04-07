@@ -14,29 +14,26 @@ Tvorba cyklocomputeru, ktorý meria a zobrazuje rýchlosť a prejdenú vzdialeno
 
 1. Použitý hardware
 
-* [Arty Artix-7](https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/) - Vývojová doska Arty A7, možnosť použiť čipy A7-35T alebo A7-100T
+* [Arty Artix-7](https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/) - Vývojová doska Arty A7, možnosť použiť čipy A7-35T alebo A7-100T. Tlačidlami BNT0 je vykonaný synchrónny reset cyklocomputera, tlačidlom BTN1 je nastavené zobrazenie aktuálnej rýchlosti a tlačidlom BTN2 je nastavenie prejdenej vzdialenosti.
 
 ![Arty-A7](Arty-A7.png)
 
-* [Pmod 4x7seg](http://fpga.fm4dd.com/?pmod/7seg4) - 4-digit 7-segmentovka so spoločnou anódou. Segmentovka je zapojená na vysokorýchlostných Pmod JB a Pmod JC konektoroch bez ochranných rezistorov. Doska 7-segmentovky obsahuje vlastné ochranné rezistory. Multiplexovanie jednotlivých segmentoviek je každých 4 ms, čo pri 4 segmentovkách robí snímkovú frekvenciu 60 FPS a zabraňuje to blikaniu.
+* [Pmod 4x7seg](http://fpga.fm4dd.com/?pmod/7seg4) - 4-digit 7-segmentovka so spoločnou anódou. Segmentovka je zapojená na vysokorýchlostných Pmod JB a Pmod JC konektoroch bez ochranných rezistorov. Doska 7-segmentovky obsahuje vlastné ochranné rezistory. Multiplexovanie jednotlivých segmentoviek je každých 4 ms, čo pri 4 segmentovkách robí snímkovú frekvenciu 60 FPS a zabraňuje to blikaniu. Rýchlosť je zobrazená v km/h s maximálnou rýchlosťou 999,9 km/h a prejdená vzdialenosť v km s maximálnym nájazdom 999,9 km.
 
 ![4x7seg](4x7seg.jpg)
 
-* [Pmod Hallova sonda](https://www.amazon.com/Sensor-Linear-Effect-Sensitivity-Detection/dp/B00W029QYC) - Hallova sonda 49E s komparátorom LM393. Obsahuje analógový a digitálny výstup. Má nastaviteľnú prahovú hodnotu komparačného napätia. Doska sondy je zapojená na štandardných Pmod JD konektoroch s ochrannými rezistormi, ktoré sa hodia ako ochrana pri použití na priame prepojenie s výstupom sondy (AOUT) alebo výstupom komparátora (DOUT).
+* [Pmod Hallova sonda](https://www.amazon.com/Sensor-Linear-Effect-Sensitivity-Detection/dp/B00W029QYC) - Hallova sonda 49E s komparátorom LM393. Obsahuje analógový a digitálny výstup. Má nastaviteľnú prahovú hodnotu komparačného napätia. Doska sondy je zapojená na štandardných Pmod JD konektoroch s ochrannými rezistormi, ktoré sa hodia ako ochrana pri použití na priame prepojenie s analógovým výstupom sondy (AOUT) alebo digitálnym výstupom komparátora (DOUT).
 
 ![Hall](Hall.jpg)
 
 2. Zapojenie
 
-BTN0 - Reset
-BTN1 - Zobrazenie rýchlosti (12 (km/h))
-BTN2 - Zobrazenie prejdenej vzdialenosti (12.34 (km))
-
+* Funkcie tlačidiel
 
 | **Tlačidlo** | **Funkcia** |
 | :-: | :-: |
 | BTN0 | Reset |
-| BTN1 | Zobrazenie rýchlosti |
+| BTN1 | Zobrazenie aktuálnej rýchlosti |
 | BTN2 | Zobrazenie prejdenej vzdialenosti |
 
 * Zapojenie 7-segmentovy
@@ -80,11 +77,15 @@ BTN2 - Zobrazenie prejdenej vzdialenosti (12.34 (km))
 
 ## Popis a simulácie VHDL modulov
 
+```vhdl
 
+```
 
 ## Popis a simulácia TOP modulu
 
+```vhdl
 
+```
 
 ## Video
 
