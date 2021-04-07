@@ -28,9 +28,6 @@ Tvorba cyklocomputeru, ktorý meria a zobrazuje rýchlosť a prejdenú vzdialeno
 
 2. Zapojenie
 
-![Zapojenie](Zapojenie.png)
-
-
 BTN0 - Reset
 BTN1 - Zobrazenie rýchlosti (12 (km/h))
 BTN2 - Zobrazenie prejdenej vzdialenosti (12.34 (km))
