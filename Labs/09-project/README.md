@@ -14,7 +14,7 @@ Tvorba cyklocomputeru, ktorý meria a zobrazuje rýchlosť a prejdenú vzdialeno
 
 1. Použitý hardware
 
-[Arty Artix-7](https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/) - Vývojová doska Arty A7, možnosť použiť čipy A7-35T alebo A7-100T. Tlačidlami BNT0 je vykonaný synchrónny reset cyklocomputera, tlačidlom BTN1 je nastavené zobrazenie aktuálnej rýchlosti a tlačidlom BTN2 je nastavenie prejdenej vzdialenosti.
+[Arty Artix-7](https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/) - Vývojová doska Arty A7, možnosť použiť čipy A7-35T alebo A7-100T. Tlačidlom BNT0 je vykonaný synchrónny reset cyklocomputera, tlačidlom BTN1 je nastavené zobrazenie aktuálnej rýchlosti a tlačidlom BTN2 je nastavenie prejdenej vzdialenosti.
 
 ![Arty-A7](Arty-A7.png)
 
