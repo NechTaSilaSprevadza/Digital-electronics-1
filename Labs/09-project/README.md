@@ -18,11 +18,11 @@ Tvorba cyklocomputeru, ktorý meria a zobrazuje rýchlosť a prejdenú vzdialeno
 
 ![Arty-A7](Arty-A7.png)
 
-* [Pmod 4x7seg](http://fpga.fm4dd.com/?pmod/7seg4) - 4-digit 7-segmentovka so spoločnou anódou
+* [Pmod 4x7seg](http://fpga.fm4dd.com/?pmod/7seg4) - 4-digit 7-segmentovka so spoločnou anódou. Segmentovka je zapojená na vysokorýchlostných Pmod JB a Pmod JC konektoroch bez ochranných rezistorov. Doska 7-segmentovky obsahuje vlastné ochranné rezistory. Multiplexovanie jednotlivých segmentoviek je každých 4 ms, čo pri 4 segmentovkách robí snímkovú frekvenciu 60 FPS a zabraňuje to blikaniu.
 
 ![4x7seg](4x7seg.jpg)
 
-* [Pmod Hallova sonda](https://www.amazon.com/Sensor-Linear-Effect-Sensitivity-Detection/dp/B00W029QYC) - Hallova sonda 49E s komparátorom LM393, analógový výstup a digitálny výstup, nastaviteľná prahová hodnota komparačného napätia
+* [Pmod Hallova sonda](https://www.amazon.com/Sensor-Linear-Effect-Sensitivity-Detection/dp/B00W029QYC) - Hallova sonda 49E s komparátorom LM393. Obsahuje analógový a digitálny výstup. Má nastaviteľnú prahovú hodnotu komparačného napätia. Doska sondy je zapojená na štandardných Pmod JD konektoroch s ochrannými rezistormi, ktoré sa hodia ako ochrana pri použití na priame prepojenie s výstupom sondy (AOUT) alebo výstupom komparátora (DOUT).
 
 ![Hall](Hall.jpg)
 
@@ -39,6 +39,7 @@ BTN2 - Zobrazenie prejdenej vzdialenosti (12.34 (km))
 | BTN1 | Zobrazenie rýchlosti |
 | BTN2 | Zobrazenie prejdenej vzdialenosti |
 
+* Zapojenie 7-segmentovy
 
 | **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
 | :-: | :-: | :-: | :-: |
@@ -63,6 +64,11 @@ BTN2 - Zobrazenie prejdenej vzdialenosti (12.34 (km))
 | Pmod JC | 10 | U13 | anóda dvojbodka |
 | Pmod JC | 11 | GND | GND |
 | Pmod JC | 12 | VCC | 3V3 |
+
+* Zapojenie Hallovej sondy
+
+| **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
+| :-: | :-: | :-: | :-: |
 | Pmod JD | 3 | F4 | DOUT |
 | Pmod JD | 4 | F3 | AOUT |
 | Pmod JD | 5 | GND | GND |
