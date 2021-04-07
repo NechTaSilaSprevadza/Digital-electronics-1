@@ -22,7 +22,7 @@ Tvorba cyklocomputeru, ktorý meria a zobrazuje rýchlosť a prejdenú vzdialeno
 
 ![4x7seg](4x7seg.jpg)
 
-* [Pmod Hallova sonda](https://www.amazon.com/Sensor-Linear-Effect-Sensitivity-Detection/dp/B00W029QYC) - Hallova sonda 49E s komparátorom LM393. Obsahuje analógový a digitálny výstup. Má nastaviteľnú prahovú hodnotu komparačného napätia. Doska sondy je zapojená na štandardných Pmod JD konektoroch s ochrannými rezistormi, ktoré sa hodia ako ochrana pri použití na priame prepojenie s analógovým výstupom sondy (AOUT) alebo digitálnym výstupom komparátora (DOUT).
+* [Pmod Hallova sonda](https://www.amazon.com/Sensor-Linear-Effect-Sensitivity-Detection/dp/B00W029QYC) - Hallova sonda 49E s komparátorom LM393. Obsahuje analógový a digitálny výstup. Má nastaviteľnú prahovú hodnotu komparačného napätia. Doska sondy je zapojená na štandardných Pmod JD konektoroch s ochrannými rezistormi, ktoré sa hodia ako ochrana pri použití na priame prepojenie s analógovým výstupom sondy (AOUT) alebo digitálnym výstupom komparátora (DOUT). Využitý je len DOUT ako indikácia otáčania kolesa bicykla.
 
 ![Hall](Hall.jpg)
 
@@ -30,46 +30,46 @@ Tvorba cyklocomputeru, ktorý meria a zobrazuje rýchlosť a prejdenú vzdialeno
 
 * Funkcie tlačidiel
 
-| **Tlačidlo** | **Funkcia** |
-| :-: | :-: |
-| BTN0 | Reset |
-| BTN1 | Zobrazenie aktuálnej rýchlosti |
-| BTN2 | Zobrazenie prejdenej vzdialenosti |
+   | **Tlačidlo** | **Funkcia** |
+   | :-: | :-: |
+   | BTN0 | Reset |
+   | BTN1 | Zobrazenie aktuálnej rýchlosti |
+   | BTN2 | Zobrazenie prejdenej vzdialenosti |
 
 * Zapojenie 7-segmentovy
 
-| **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
-| :-: | :-: | :-: | :-: |
-| Pmod JB | 1 | E15 | segment A |
-| Pmod JB | 2 | E16 | segment B |
-| Pmod JB | 3 | D15 | segment C |
-| Pmod JB | 4 | C15 | segment D |
-| Pmod JB | 5 | GND | GND |
-| Pmod JB | 6 | VCC | 3V3 |
-| Pmod JB | 7 | J17 | segment E |
-| Pmod JB | 8 | J18 | segment F |
-| Pmod JB | 9 | K15 | segment G |
-| Pmod JB | 10 | J15 | segment DP |
-| Pmod JB | 11 | GND | GND |
-| Pmod JB | 12 | VCC | 3V3 |
-| Pmod JC | 1 | U12 | anóda digit 1 |
-| Pmod JC | 2 | V12 | anóda digit 2 |
-| Pmod JC | 3 | V10 | anóda digit 3 |
-| Pmod JC | 4 | V11 | anóda digit 4 |
-| Pmod JC | 5 | GND | GND |
-| Pmod JC | 6 | VCC | 3V3 |
-| Pmod JC | 10 | U13 | anóda dvojbodka |
-| Pmod JC | 11 | GND | GND |
-| Pmod JC | 12 | VCC | 3V3 |
+   | **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
+   | :-: | :-: | :-: | :-: |
+   | Pmod JB | 1 | E15 | segment A |
+   | Pmod JB | 2 | E16 | segment B |
+   | Pmod JB | 3 | D15 | segment C |
+   | Pmod JB | 4 | C15 | segment D |
+   | Pmod JB | 5 | GND | GND |
+   | Pmod JB | 6 | VCC | 3V3 |
+   | Pmod JB | 7 | J17 | segment E |
+   | Pmod JB | 8 | J18 | segment F |
+   | Pmod JB | 9 | K15 | segment G |
+   | Pmod JB | 10 | J15 | segment DP |
+   | Pmod JB | 11 | GND | GND |
+   | Pmod JB | 12 | VCC | 3V3 |
+   | Pmod JC | 1 | U12 | anóda digit 1 |
+   | Pmod JC | 2 | V12 | anóda digit 2 |
+   | Pmod JC | 3 | V10 | anóda digit 3 |
+   | Pmod JC | 4 | V11 | anóda digit 4 |
+   | Pmod JC | 5 | GND | GND |
+   | Pmod JC | 6 | VCC | 3V3 |
+   | Pmod JC | 10 | U13 | anóda dvojbodka |
+   | Pmod JC | 11 | GND | GND |
+   | Pmod JC | 12 | VCC | 3V3 |
 
 * Zapojenie Hallovej sondy
 
-| **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
-| :-: | :-: | :-: | :-: |
-| Pmod JD | 3 | F4 | DOUT |
-| Pmod JD | 4 | F3 | AOUT |
-| Pmod JD | 5 | GND | GND |
-| Pmod JD | 6 | VCC | 3V3 |
+   | **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
+   | :-: | :-: | :-: | :-: |
+   | Pmod JD | 3 | F4 | DOUT |
+   | Pmod JD | 4 | F3 | AOUT |
+   | Pmod JD | 5 | GND | GND |
+   | Pmod JD | 6 | VCC | 3V3 |
 
 
 
