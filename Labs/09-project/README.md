@@ -358,7 +358,7 @@ begin
 end Behavioral;
 ```
 
-![and_gates](in_filter.png)
+![filter](in_filter.png)
 
 
 
