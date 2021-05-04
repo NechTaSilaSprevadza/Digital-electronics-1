@@ -86,6 +86,8 @@ Zapojenie Hallovej sondy
 
 ### clock_enable_1
 
+Modul [clock_enable_1](VHDL/Designs/clock_enable_1.vhd) 
+
 ```vhdl
 library ieee;               
 use ieee.std_logic_1164.all;
@@ -143,7 +145,7 @@ end architecture Behavioral;
 
 ### cnt_distance
 
-Je to jednoduchý čítač, který jsme používali v laboratorních úlohách. V našem projektu Console for bike používáme jako hodiny příchozí impulzy z Hallovy sondy, umístěné blízko kola. Vlivem neustálé změny rychlosti točení se taktéž mění délka mezi jednotlivými impulzy a proto nebylo dobré řídit se hodinami, ale řídil jsem se resetem, aby se mi nemohlo stát, že reset skončí v sestupné hraně hodinového impulzu, kde by nevynuloval proměnnou čítače.
+Modul [cnt_distance](VHDL/Designs/cnt_distance.vhd) je jednoduchý čítač, který jsme používali v laboratorních úlohách. V našem projektu Console for bike používáme jako hodiny příchozí impulzy z Hallovy sondy, umístěné blízko kola. Vlivem neustálé změny rychlosti točení se taktéž mění délka mezi jednotlivými impulzy a proto nebylo dobré řídit se hodinami, ale řídil jsem se resetem, aby se mi nemohlo stát, že reset skončí v sestupné hraně hodinového impulzu, kde by nevynuloval proměnnou čítače.
 
 První okno simulace simuluje rychlou jízdu a čítání impulzů z Hallovy sondy.
 
@@ -219,7 +221,7 @@ end architecture behavioral;
 
 ### counter_speed
 
-Hallova sonda je v kódu demonstrována jako hodiny, tj. počet opakujících se period. Čítač čítá impulzy z Hallové sondy. Výstup čítače je závislý na hodinách. Hodiny znázorňují otáčku kola za 1 sekundu. Náběžnou hranou z hodin nulujeme čítač. Funkcí reset jsme schopni nulovat čítač i výstup z čítače. 
+Hallova sonda je v kódu demonstrována jako hodiny, tj. počet opakujících se period. Modul [counter_speed](VHDL/Designs/counter_speed.vhd) je čítač, který čítá impulzy z Hallové sondy. Výstup čítače je závislý na hodinách. Hodiny znázorňují otáčku kola za 1 sekundu. Náběžnou hranou z hodin nulujeme čítač. Funkcí reset jsme schopni nulovat čítač i výstup z čítače. 
 
 ```vhdl
 library IEEE;
@@ -320,7 +322,7 @@ end Behavioral;
 
 ### clock_enable_0
 
-Modul `clock_enable_0` vytvára enable pulzy každé 4 milisekundy. To je dosiahnuté napočítaním 400000 impulzov 100 MHz interného hodinového signálu. Tieto 4 milisekundy sú potrebné pre časové multiplexovanie 7-segmentového displeja.
+Modul [clock_enable_0](VHDL/Designs/clock_enable_0.vhd) vytvára enable pulzy každé 4 milisekundy. To je dosiahnuté napočítaním 400000 impulzov 100 MHz interného hodinového signálu. Tieto 4 milisekundy sú potrebné pre časové multiplexovanie 7-segmentového displeja.
 
 ```vhdl
 library ieee;               
@@ -383,7 +385,7 @@ end architecture Behavioral;
 
 ### cnt_up_down
 
-Modul `cnt_up_down` je obojsmerný čítač. Je tu použitý ako čítač smerom hore. Jeho výstupom je informácia o tom, ktorá zo 7 segmentoviek má byť v danom čase rozsvietená. Je riadený pulzmi z modulu clock_enable_0, teda mení svoju hodnotu každé 4 milisekundy.
+Modul [cnt_up_down](VHDL/Designs/cnt_up_down.vhd) je obojsmerný čítač. Je tu použitý ako čítač smerom hore. Jeho výstupom je informácia o tom, ktorá zo 7 segmentoviek má byť v danom čase rozsvietená. Je riadený pulzmi z modulu clock_enable_0, teda mení svoju hodnotu každé 4 milisekundy.
 
 ```vhdl
 library ieee;
@@ -441,7 +443,7 @@ end architecture behavioral;
 
 ### driver_7seg_4digits
 
-Modul `driver_7seg_4digits` sa stará o výpis informácie na displej tvorený 4 7-segmentovkami. Tento displej je časovo multiplexovaný, každá 7-segmentovka svieti 4 milisekundy, čo robí dokopy 16 milisekúnd pre celú jednu obsluhu displeja. Týmto je dosiahnutá obnovovacia frekvencia displeja 60 Hz, čo umožňuje aby bol pozorovaný obraz plynulý. Proces `process p_mux` je multiplexer, ktorého vstup tvoria informácie o tom, ktorá 7-segmentovka má v danom čase svietiť, akú hodnotu má zobrazovať a na ktorom mieste sa nachádza desatinná bodka. Jeho funkcia je riadenie 7-segmentového displeja a prepínanie jednotlivých 7-segmentoviek. Taktiež nastavuje pozíciu desatinnej bodky.
+Modul [driver_7seg_4digits](VHDL/Designs/driver_7seg_4digits.vhd) sa stará o výpis informácie na displej tvorený 4 7-segmentovkami. Tento displej je časovo multiplexovaný, každá 7-segmentovka svieti 4 milisekundy, čo robí dokopy 16 milisekúnd pre celú jednu obsluhu displeja. Týmto je dosiahnutá obnovovacia frekvencia displeja 60 Hz, čo umožňuje aby bol pozorovaný obraz plynulý. Proces `process p_mux` je multiplexer, ktorého vstup tvoria informácie o tom, ktorá 7-segmentovka má v danom čase svietiť, akú hodnotu má zobrazovať a na ktorom mieste sa nachádza desatinná bodka. Jeho funkcia je riadenie 7-segmentového displeja a prepínanie jednotlivých 7-segmentoviek. Taktiež nastavuje pozíciu desatinnej bodky.
 
 ```vhdl
 library ieee;
@@ -567,7 +569,7 @@ end architecture Behavioral;
 
 ### hex_7_seg
 
-Modul `hex_7_seg` prekladá 4-bitovú informáciu na 7-bitovú, ktorá už určuje, ktoré segmenty budú svietiť.
+Modul [hex_7_seg](VHDL/Designs/hex_7_seg.vhd) prekladá 4-bitovú informáciu na 7-bitovú, priamo na jednotlivé bity, ktorá už určujú, ktoré zo 7 segmentov budú svietiť.
 
 ```vhdl
 library IEEE;
@@ -662,7 +664,7 @@ end Behavioral;
 
 ## Popis a simulácia TOP modulu
 
-V `top` module je zobrazené celkové zapojenie cyklocomputera.
+V [top](VHDL/Designs/top.vhd) module je zobrazené celkové zapojenie cyklocomputera.
 
 ![TOP](Images/TOP.svg)
 
