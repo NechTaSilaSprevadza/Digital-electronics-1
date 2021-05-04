@@ -41,9 +41,9 @@ Funkcie tlačidiel
    | **Vstup** | **Funkcia** |
    | :-: | :-: |
    | BTN0 | Reset |
-   | SW0 | Zobrazenie aktuálnej rýchlosti a celkovej prejdenej vzdialenosti |
+   | BTN1 | Prepínanie zobrazenia aktuálnej rýchlosti a celkovej prejdenej vzdialenosti |
 
-Zapojenie 7-segmentovy
+Zapojenie 7-segmentovky
 
    | **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
    | :-: | :-: | :-: | :-: |
