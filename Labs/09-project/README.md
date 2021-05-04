@@ -567,9 +567,9 @@ end architecture Behavioral;
 
 
 
-### hex_7_seg
+### hex_7seg
 
-Modul [hex_7_seg](VHDL/Designs/hex_7_seg.vhd) prekladá 4-bitovú informáciu na 7-bitovú, priamo na jednotlivé bity, ktorá už určujú, ktoré zo 7 segmentov budú svietiť.
+Modul [hex_7seg](VHDL/Designs/hex_7seg.vhd) prekladá 4-bitovú informáciu na 7-bitovú, priamo na jednotlivé bity, ktorá už určujú, ktoré zo 7 segmentov budú svietiť.
 
 ```vhdl
 library IEEE;
