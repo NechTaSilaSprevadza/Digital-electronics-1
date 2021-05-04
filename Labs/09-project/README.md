@@ -86,7 +86,7 @@ Zapojenie Hallovej sondy
 
 ### clock_enable_1
 
-Modul [clock_enable_1](VHDL/Designs/clock_enable_1.vhd) 
+Modul [clock_enable_1](VHDL/Designs/clock_enable_1.vhd) je použitý ako generátor pulzov, ktoré slúžia na výpočet aktuálnej rýchlosti. Pulzy sa generujú každú milisekundu.
 
 ```vhdl
 library ieee;               
