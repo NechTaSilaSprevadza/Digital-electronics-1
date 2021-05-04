@@ -1119,7 +1119,7 @@ Podarilo sa nám vytvoriť presné počítadlo vzdialenosti, spoľahlivé počí
 
 ## Video
 
-[Video](https: google drive)
+[Video](https://drive.google.com/file/d/1lW2mAQtdswHChjIZ5Rc0qnjZ2q5AomU7/view?usp=sharing)
 
 ## Referencie
 
