@@ -1,218 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 3840 2160" style="enable-background:new 0 0 3840 2160;" xml:space="preserve">
+	 viewBox="0 0 2665 1260" style="enable-background:new 0 0 2665 1260;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;stroke:#000000;}
 	.st1{font-family:'ArialMT';}
 	.st2{font-size:20px;}
 	.st3{font-size:16px;}
 	.st4{fill:none;stroke:#000000;}
+	.st5{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
 </style>
 <g>
-	<rect id="svg_4" x="275.1" y="178.4" class="st0" width="2123" height="1142.2"/>
-	<rect id="svg_43" x="1195.5" y="230.5" class="st0" width="1100" height="584.6"/>
-	<text id="svg_5" transform="matrix(1 0 0 1 535.3327 176.0781)" class="st1 st2">top</text>
-	<rect id="svg_3" x="1296.5" y="280.4" class="st0" width="150" height="150"/>
-	<text id="svg_8" transform="matrix(1 0 0 1 1296.4124 272.5436)" class="st1 st3">clock_enable_0</text>
-	<text id="svg_9" transform="matrix(1 0 0 1 402.736 498.135)" class="st1 st3">clock_enable_1</text>
-	<rect id="svg_11" x="1546.5" y="280.5" class="st0" width="150" height="150"/>
-	<text id="svg_14" transform="matrix(1 0 0 1 1546.4124 272.5436)" class="st1 st3">counter_up_down_0</text>
-	<rect id="svg_15" x="2496.5" y="280.5" class="st0" width="200" height="400"/>
-	<text id="svg_23" transform="matrix(1 0 0 1 2496.4121 272.5436)" class="st1 st3">PMOD 7seg4</text>
-	<rect id="svg_28" x="105.1" y="762.4" class="st0" width="100" height="100"/>
-	<text id="svg_29" transform="matrix(1 0 0 1 105.0803 759.8145)" class="st1 st3">PMOD Hall</text>
-	<ellipse id="svg_37" class="st0" cx="155.1" cy="406" rx="10" ry="10"/>
-	<text id="svg_38" transform="matrix(1 0 0 1 145.0805 394.4086)" class="st1 st3">CLK_100_MHz</text>
-	<ellipse id="svg_39" class="st0" cx="155.1" cy="354" rx="10" ry="10"/>
-	<text id="svg_40" transform="matrix(1 0 0 1 145.0803 342.8497)" class="st1 st3">BTN0 - Reset</text>
-	<ellipse id="svg_41" class="st0" cx="155.1" cy="1133.4" rx="10" ry="10"/>
-	<text id="svg_42" transform="matrix(1 0 0 1 145.1001 1120.6027)" class="st1 st3">BTN1 - Display</text>
-	<rect id="svg_18" x="1796.5" y="280.5" class="st0" width="150" height="484.4"/>
-	<rect id="svg_19" x="2046.5" y="280.5" class="st0" width="150" height="150"/>
-	<text id="svg_20" transform="matrix(1 0 0 1 2046.4124 272.5436)" class="st1 st3">hex_7_seg</text>
-	<text id="svg_21" transform="matrix(1 0 0 1 1807.5215 297.6074)" class="st1 st3">process p_mux</text>
-	<line id="svg_44" class="st4" x1="2196.5" y1="355.5" x2="2496.5" y2="355.5"/>
-	<line id="svg_45" class="st4" x1="2046.5" y1="355.5" x2="1946.5" y2="355.5"/>
-	<text id="svg_46" transform="matrix(1 0 0 1 1196.4124 222.5436)" class="st1 st2">driver_7seg_4digits</text>
-	<text id="svg_47" transform="matrix(1 0 0 1 2150.4446 360.5436)" class="st1 st3">seg_o</text>
-	<text id="svg_48" transform="matrix(1 0 0 1 2048.9932 360.5436)" class="st1 st3">hex_i</text>
-	<line id="svg_50" class="st4" x1="2251.5" y1="344.7" x2="2245.7" y2="363.8"/>
-	<text id="svg_51" transform="matrix(1 0 0 1 2243.0791 380.5436)" class="st1 st3">7</text>
-	<line id="svg_52" class="st4" x1="1998.5" y1="344.5" x2="1992.5" y2="364.5"/>
-	<text id="svg_53" transform="matrix(1 0 0 1 1989.4124 380.5436)" class="st1 st3">4</text>
-	<line id="svg_54" class="st4" x1="1946.5" y1="480.5" x2="2496.5" y2="480.5"/>
-	<line id="svg_55" class="st4" x1="1946.5" y1="530.5" x2="2496.5" y2="530.5"/>
-	<line id="svg_56" class="st4" x1="1997.5" y1="468.5" x2="1992.5" y2="488.5"/>
-	<line id="svg_57" class="st4" x1="1997.5" y1="520.5" x2="1992.5" y2="540.5"/>
-	<text id="svg_59" transform="matrix(1 0 0 1 1990.4124 502.496)" class="st1 st3">1</text>
-	<text id="svg_60" transform="matrix(1 0 0 1 1989.5076 554.496)" class="st1 st3">4</text>
-	<text id="svg_61" transform="matrix(1 0 0 1 1907.4763 485.5436)" class="st1 st3">dp_o</text>
-	<text id="svg_62" transform="matrix(1 0 0 1 1904.0679 534.7877)" class="st1 st3">dig_o</text>
-	<text id="svg_63" transform="matrix(1 0 0 1 1551.4124 300.5436)" class="st1 st3">g_CNT_WIDTH = 2</text>
-	<text id="svg_64" transform="matrix(1 0 0 1 1308.8591 298.416)" class="st1 st3">g_MAX = 400000</text>
-	<line id="svg_65" class="st4" x1="1796.5" y1="480.5" x2="1720.4" y2="480.5"/>
-	<text id="svg_66" transform="matrix(1 0 0 1 1800.3486 485.5436)" class="st1 st3">dp_i</text>
-	<line id="svg_67" class="st4" x1="1756" y1="470.5" x2="1750.7" y2="489.4"/>
-	<line id="svg_67_4_" class="st4" x1="926.6" y1="597.6" x2="921.3" y2="616.5"/>
-	<text id="svg_68" transform="matrix(1 0 0 1 1747.4124 503.4484)" class="st1 st3">4</text>
-	<text id="svg_68_6_" transform="matrix(1 0 0 1 926.7368 605.8575)" class="st1 st3">10</text>
-	<line id="svg_69" class="st4" x1="1796.5" y1="355.5" x2="1697" y2="355.5"/>
-	<line id="svg_71" class="st4" x1="1446.5" y1="330.5" x2="1546.5" y2="330.5"/>
-	<line id="svg_72" class="st4" x1="1751.3" y1="345.7" x2="1745.5" y2="364.8"/>
-	<text id="svg_73" transform="matrix(1 0 0 1 1743.46 378.5436)" class="st1 st3">2</text>
-	<text id="svg_74" transform="matrix(1 0 0 1 1654.6382 359.9753)" class="st1 st3">cnt_o</text>
-	<text id="svg_75" transform="matrix(1 0 0 1 1732.4124 337.5436)" class="st1 st3">s_cnt</text>
-	<text id="svg_76" transform="matrix(1 0 0 1 1981.4124 337.5436)" class="st1 st3">s_hex</text>
-	<text id="svg_77" transform="matrix(1 0 0 1 1549.1865 333.5436)" class="st1 st3">en_i</text>
-	<text id="svg_78" transform="matrix(1 0 0 1 1549.1865 360.5436)" class="st1 st3">cnt_up_i</text>
-	<text id="svg_79" transform="matrix(1 0 0 1 1549.9932 387.5436)" class="st1 st3">reset</text>
-	<text id="svg_80" transform="matrix(1 0 0 1 1561.8962 410.7526)" class="st1 st3">clk</text>
-	<line id="svg_87" class="st4" x1="1559.4" y1="406" x2="1546.5" y2="413.1"/>
-	<line id="svg_88" class="st4" x1="1559.4" y1="406" x2="1546.5" y2="398.8"/>
-	<text id="svg_89" transform="matrix(1 0 0 1 1477.3665 323.7822)" class="st1 st3">s_en</text>
-	<line id="svg_91" class="st4" x1="1546.5" y1="354.2" x2="1486.8" y2="354.2"/>
-	<text id="svg_94" transform="matrix(1 0 0 1 1409.0994 335.0938)" class="st1 st3">ce_o</text>
-	<text id="svg_95" transform="matrix(1 0 0 1 1300.0833 358.2542)" class="st1 st3">reset</text>
-	<text id="svg_96" transform="matrix(1 0 0 1 1311.3068 410.9697)" class="st1 st3">clk</text>
-	<line id="svg_99" class="st4" x1="1309.7" y1="406" x2="1296.5" y2="398.9"/>
-	<line id="svg_100" class="st4" x1="1309.7" y1="406" x2="1296.5" y2="413.3"/>
-	<text id="svg_101" transform="matrix(1 0 0 1 2229.168 337.1395)" class="st1 st3">seg_o</text>
-	<line id="svg_65_1_" class="st4" x1="1296.5" y1="406" x2="165.1" y2="406"/>
-	<line id="svg_65_2_" class="st4" x1="402.7" y1="1133.4" x2="165.1" y2="1133.4"/>
-	<line id="svg_65_3_" class="st4" x1="1296.5" y1="354" x2="165.1" y2="354"/>
-	<line id="svg_65_4_" class="st4" x1="1546.5" y1="383.6" x2="1497.4" y2="383.6"/>
-	<line id="svg_65_5_" class="st4" x1="1546.5" y1="406" x2="1518.1" y2="406"/>
-	<line id="svg_65_6_" class="st4" x1="1497.4" y1="447.7" x2="1272.5" y2="447.7"/>
-	<line id="svg_65_7_" class="st4" x1="1518.1" y1="464.2" x2="1247.5" y2="464.2"/>
-	<line id="svg_93_2_" class="st4" x1="1497.4" y1="383.6" x2="1497.4" y2="447.7"/>
-	<line id="svg_93_3_" class="st4" x1="1518.1" y1="406" x2="1518.1" y2="464.2"/>
-	<line id="svg_93_4_" class="st4" x1="1272.5" y1="354" x2="1272.5" y2="447.7"/>
-	<line id="svg_93_5_" class="st4" x1="1247.5" y1="406" x2="1247.5" y2="464.2"/>
-	<rect id="svg_3_1_" x="402.8" y="502.9" class="st0" width="150" height="150"/>
-	<rect id="svg_3_2_" x="402.8" y="1014" class="st0" width="150" height="150"/>
-	<rect id="svg_3_3_" x="955" y="1009.1" class="st0" width="150" height="150"/>
-	<text id="svg_64_1_" transform="matrix(1 0 0 1 414.7994 523.6357)" class="st1 st3">g_MAX = 100000</text>
-	<line id="svg_71_2_" class="st4" x1="552.8" y1="548.8" x2="680.1" y2="548.8"/>
-	<rect id="svg_12_1_" x="680.1" y="503" class="st0" width="157.4" height="178.2"/>
-	<text id="svg_16_1_" transform="matrix(1 0 0 1 680.011 498.839)" class="st1 st3">counter_speed</text>
-	<text id="svg_77_1_" transform="matrix(1 0 0 1 682.7849 553.1533)" class="st1 st3">en_i</text>
-	<text id="svg_79_1_" transform="matrix(1 0 0 1 682.7847 636.3294)" class="st1 st3">reset</text>
-	<text id="svg_80_1_" transform="matrix(1 0 0 1 695.4948 659.3622)" class="st1 st3">clk</text>
-	<line id="svg_87_1_" class="st4" x1="693" y1="654.6" x2="680.1" y2="661.7"/>
-	<line id="svg_88_1_" class="st4" x1="693" y1="654.6" x2="680.1" y2="647.4"/>
-	<text id="svg_63_1_" transform="matrix(1 0 0 1 686.4608 523.7106)" class="st1 st3">g_CNT_WIDTH = 10</text>
-	<rect id="svg_12_2_" x="680.1" y="764.9" class="st0" width="157.4" height="150"/>
-	<rect id="svg_12_3_" x="680.1" y="1010.1" class="st0" width="157.4" height="174.6"/>
-	<text id="svg_16_2_" transform="matrix(1 0 0 1 680.011 760.7601)" class="st1 st3">counter_distance</text>
-	<text id="svg_16_3_" transform="matrix(1 0 0 1 402.7359 1008.4955)" class="st1 st3">btn_filter:in_filter</text>
-	<text id="svg_16_4_" transform="matrix(1 0 0 1 680.0108 1004.9353)" class="st1 st3">signal_detect</text>
-	<text id="svg_16_5_" transform="matrix(1 0 0 1 955.0226 1006.8876)" class="st1 st3">control</text>
-	<text id="svg_77_2_" transform="matrix(1 0 0 1 682.7849 815.0746)" class="st1 st3">hall_i</text>
-	<text id="svg_77_10_" transform="matrix(1 0 0 1 489.7938 805.7642)" class="st1 st3">s_hall</text>
-	<text id="svg_77_9_" transform="matrix(1 0 0 1 682.5374 1103.8325)" class="st1 st3">clear_i</text>
-	<text id="svg_77_3_" transform="matrix(1 0 0 1 406.4069 1137.0471)" class="st1 st3">input</text>
-	<text id="svg_77_6_" transform="matrix(1 0 0 1 682.5375 1053.6133)" class="st1 st3">input</text>
-	<text id="svg_78_3_" transform="matrix(1 0 0 1 683.0405 1145.9497)" class="st1 st3">time_short_i</text>
-	<text id="svg_78_7_" transform="matrix(1 0 0 1 957.3353 1121.863)" class="st1 st3">clear_press_0</text>
-	<text id="svg_78_10_" transform="matrix(1 0 0 1 869.0393 1113.3938)" class="st1 st3">s_sd_clear</text>
-	<text id="svg_78_6_" transform="matrix(1 0 0 1 956.1998 1073.4402)" class="st1 st3">long_press_i</text>
-	<text id="svg_78_9_" transform="matrix(1 0 0 1 737.454 1073.4399)" class="st1 st3">long_signal_o</text>
-	<text id="svg_78_5_" transform="matrix(1 0 0 1 956.9253 1046.8638)" class="st1 st3">short_press_i</text>
-	<text id="svg_78_8_" transform="matrix(1 0 0 1 732.7837 1046.8638)" class="st1 st3">short_signal_o</text>
-	<text id="svg_78_11_" transform="matrix(1 0 0 1 870.0768 1037.8401)" class="st1 st3">s_short</text>
-	<text id="svg_78_12_" transform="matrix(1 0 0 1 869.2346 1065.3441)" class="st1 st3">s_long</text>
-	<text id="svg_78_4_" transform="matrix(1 0 0 1 683.5918 1167.3903)" class="st1 st3">time_long_i</text>
-	<text id="svg_79_2_" transform="matrix(1 0 0 1 683.5916 869.0746)" class="st1 st3">reset</text>
-	<text id="svg_79_5_" transform="matrix(1 0 0 1 682.5376 1124.3135)" class="st1 st3">reset</text>
-	<text id="svg_79_4_" transform="matrix(1 0 0 1 405.2562 1060.8318)" class="st1 st3">reset</text>
-	<text id="svg_80_4_" transform="matrix(1 0 0 1 694.4338 1081.1416)" class="st1 st3">clk</text>
-	<text id="svg_80_3_" transform="matrix(1 0 0 1 417.6306 1092.0054)" class="st1 st3">clk</text>
-	<line id="svg_87_4_" class="st4" x1="692.9" y1="1077" x2="680" y2="1084.1"/>
-	<line id="svg_87_3_" class="st4" x1="415.7" y1="1088.5" x2="402.8" y2="1095.6"/>
-	<line id="svg_88_4_" class="st4" x1="692.9" y1="1077" x2="680" y2="1069.8"/>
-	<line id="svg_88_3_" class="st4" x1="415.7" y1="1088.7" x2="402.8" y2="1081.5"/>
-	<text id="svg_63_2_" transform="matrix(1 0 0 1 686.4608 785.6318)" class="st1 st3">g_CNT_WIDTH = 19</text>
-	<text id="svg_63_3_" transform="matrix(1 0 0 1 409.25 1028.4321)" class="st1 st3">g_CNT_WIDTH = 3</text>
-	<text id="svg_63_4_" transform="matrix(1 0 0 1 682.7847 1024.4639)" class="st1 st3">g_CNT_WIDTH = 32</text>
-	<text id="svg_95_1_" transform="matrix(1 0 0 1 406.4069 579.5337)" class="st1 st3">reset</text>
-	<text id="svg_95_2_" transform="matrix(1 0 0 1 572.1124 543.5801)" class="st1 st3">s_ce</text>
-	<text id="svg_95_3_" transform="matrix(1 0 0 1 516.2147 553.1533)" class="st1 st3">ce_1</text>
-	<text id="svg_96_1_" transform="matrix(1 0 0 1 417.6304 632.2493)" class="st1 st3">clk</text>
-	<line id="svg_99_1_" class="st4" x1="416" y1="627.2" x2="402.8" y2="620.1"/>
-	<line id="svg_100_1_" class="st4" x1="416" y1="627.2" x2="402.8" y2="634.5"/>
-	<line id="svg_93_7_" class="st4" x1="659.5" y1="625.6" x2="659.5" y2="1077"/>
-	<line id="svg_65_8_" class="st4" x1="402.8" y1="575.1" x2="381.3" y2="575.1"/>
-	<line id="svg_65_9_" class="st4" x1="680.1" y1="654.6" x2="659.5" y2="654.6"/>
-	<line id="svg_65_10_" class="st4" x1="402.8" y1="627.2" x2="360.1" y2="627.2"/>
-	<line id="svg_65_17_" class="st4" x1="680.1" y1="1077" x2="659.5" y2="1077"/>
-	<line id="svg_65_19_" class="st4" x1="955" y1="1042.2" x2="837.5" y2="1042.2"/>
-	<line id="svg_65_20_" class="st4" x1="955" y1="1069.7" x2="837.5" y2="1069.7"/>
-	<line id="svg_65_11_" class="st4" x1="955" y1="1117.8" x2="869" y2="1117.8"/>
-	<line id="svg_65_14_" class="st4" x1="680" y1="1049.6" x2="552.8" y2="1049.6"/>
-	<line id="svg_65_13_" class="st4" x1="680.1" y1="631.8" x2="637" y2="631.8"/>
-	<line id="svg_65_15_" class="st4" x1="680.1" y1="864.6" x2="637" y2="864.6"/>
-	<line id="svg_65_18_" class="st4" x1="680.1" y1="1120.6" x2="637" y2="1120.6"/>
-	<line id="svg_93_9_" class="st4" x1="637" y1="602.8" x2="637" y2="1120.6"/>
-	<line id="svg_93_10_" class="st4" x1="381.3" y1="354" x2="381.3" y2="1056"/>
-	<line id="svg_93_11_" class="st4" x1="637" y1="354" x2="637" y2="603.2"/>
-	<line id="svg_93_12_" class="st4" x1="360.1" y1="406" x2="360.1" y2="1089"/>
-	<line id="svg_93_13_" class="st4" x1="659.5" y1="406" x2="659.5" y2="625.5"/>
-	<line id="svg_65_16_" class="st4" x1="680.1" y1="811.1" x2="205.1" y2="811.1"/>
-	<text id="svg_77_5_" transform="matrix(1 0 0 1 798.2222 873.3149)" class="st1 st3">dis_o</text>
-	<text id="svg_77_4_" transform="matrix(1 0 0 1 505.8787 1054.7473)" class="st1 st3">output</text>
-	<text id="svg_77_7_" transform="matrix(1 0 0 1 793.0017 611.1373)" class="st1 st3">spd_o</text>
-	<text id="svg_68_1_" transform="matrix(1 0 0 1 1734.1785 464.791)" class="st1 st3">(1101)</text>
-	<text id="svg_68_2_" transform="matrix(1 0 0 1 2011.673 477.032)" class="st1 st3">(”XXX.X”)</text>
-	<text id="svg_77_19_" transform="matrix(1 0 0 1 861.5844 603.3533)" class="st1 st3">s_spd</text>
-	<text id="svg_77_23_" transform="matrix(1 0 0 1 864.7103 864.5997)" class="st1 st3">s_dis</text>
-	<line id="svg_67_9_" class="st4" x1="920.2" y1="859" x2="914.9" y2="877.9"/>
-	<text id="svg_68_11_" transform="matrix(1 0 0 1 920.4666 867.4481)" class="st1 st3">19</text>
-	<rect id="svg_11_1_" x="956.2" y="504.5" class="st0" width="150" height="410.4"/>
-	<line id="svg_65_22_" class="st4" x1="956.2" y1="869" x2="837.5" y2="869"/>
-	<line id="svg_65_23_" class="st4" x1="956.2" y1="607.1" x2="837.5" y2="607.1"/>
-	<line id="svg_65_27_" class="st4" x1="1796.5" y1="661.4" x2="1106.2" y2="661.4"/>
-	<line id="svg_65_28_" class="st4" x1="1796.5" y1="678.3" x2="1106.2" y2="678.3"/>
-	<line id="svg_65_29_" class="st4" x1="1796.5" y1="697.3" x2="1106.2" y2="697.3"/>
-	<line id="svg_65_30_" class="st4" x1="1796.5" y1="716.2" x2="1106.2" y2="716.2"/>
-	<text id="svg_77_27_" transform="matrix(1 0 0 1 1039.0109 665.4944)" class="st1 st3">data_o_0</text>
-	<text id="svg_77_28_" transform="matrix(1 0 0 1 1039.0111 682.9742)" class="st1 st3">data_o_1</text>
-	<text id="svg_77_29_" transform="matrix(1 0 0 1 1039.011 701.5884)" class="st1 st3">data_o_2</text>
-	<text id="svg_77_30_" transform="matrix(1 0 0 1 1039.0111 720.7698)" class="st1 st3">data_o_3</text>
-	<text id="svg_77_34_" transform="matrix(1 0 0 1 1797.3162 665.4324)" class="st1 st3">data_i_0</text>
-	<text id="svg_77_33_" transform="matrix(1 0 0 1 1797.3167 682.9125)" class="st1 st3">data_i_1</text>
-	<text id="svg_77_32_" transform="matrix(1 0 0 1 1797.3164 701.5266)" class="st1 st3">data_i_2</text>
-	<text id="svg_77_31_" transform="matrix(1 0 0 1 1797.3164 720.7079)" class="st1 st3">data_i_3</text>
-	<text id="svg_77_38_" transform="matrix(1 0 0 1 1618.4507 657.0381)" class="st1 st3">s_data_0</text>
-	<text id="svg_77_37_" transform="matrix(1 0 0 1 1618.4509 674.5179)" class="st1 st3">s_data_1</text>
-	<text id="svg_77_36_" transform="matrix(1 0 0 1 1618.4507 693.1321)" class="st1 st3">s_data_2</text>
-	<text id="svg_77_35_" transform="matrix(1 0 0 1 1618.4509 712.3137)" class="st1 st3">s_data_3</text>
-	<text id="svg_21_1_" transform="matrix(1 0 0 1 972.0349 519.7313)" class="st1 st3">process p_control</text>
-	<text id="svg_77_39_" transform="matrix(1 0 0 1 957.3354 872.7491)" class="st1 st3">dis_i</text>
-	<line id="svg_65_31_" class="st4" x1="2803.8" y1="1463.4" x2="73.6" y2="1463.4"/>
-	<line id="svg_65_32_" class="st4" x1="2803.8" y1="111.5" x2="73.6" y2="111.5"/>
-	<line id="svg_93_15_" class="st4" x1="73.6" y1="111.5" x2="73.6" y2="1463.4"/>
-	<line id="svg_93_16_" class="st4" x1="2803.8" y1="111.5" x2="2803.8" y2="1463.4"/>
-	<ellipse id="svg_39_1_" class="st0" cx="1476.8" cy="354.2" rx="10" ry="10"/>
-	<text transform="matrix(1 0 0 1 1488.3584 352.6063)" class="st1 st3">3V3</text>
-	<line id="svg_93_6_" class="st4" x1="613.8" y1="603.2" x2="613.8" y2="811.1"/>
-	<line id="svg_65_12_" class="st4" x1="680.1" y1="603.2" x2="613.8" y2="603.2"/>
-	<text id="svg_79_3_" transform="matrix(1 0 0 1 682.7849 606.7015)" class="st1 st3">hall_i</text>
-	<text id="svg_61_1_" transform="matrix(1 0 0 1 2326.5098 478.2391)" class="st1 st3">JB7</text>
-	<text id="svg_61_2_" transform="matrix(1 0 0 1 2319.4795 350.6931)" class="st1 st3">JB[6:0]</text>
-	<text id="svg_61_3_" transform="matrix(1 0 0 1 2320.0312 525.614)" class="st1 st3">JC[3:0]</text>
-	<line id="svg_55_1_" class="st4" x1="1946.5" y1="579.2" x2="2496.5" y2="579.2"/>
-	<line id="svg_57_1_" class="st4" x1="1997.5" y1="569.2" x2="1992.5" y2="589.2"/>
-	<text id="svg_60_1_" transform="matrix(1 0 0 1 1989.5076 603.2199)" class="st1 st3">1</text>
-	<text id="svg_61_7_" transform="matrix(1 0 0 1 2326.1633 576.7257)" class="st1 st3">JC4</text>
-	<text id="svg_61_4_" transform="matrix(1 0 0 1 2498.4883 359.9751)" class="st1 st3">Segment_[G:A]</text>
-	<text id="svg_61_5_" transform="matrix(1 0 0 1 2498.4888 485.5433)" class="st1 st3">DP</text>
-	<text id="svg_61_8_" transform="matrix(1 0 0 1 2498.488 584.4553)" class="st1 st3">Colon</text>
-	<text id="svg_61_6_" transform="matrix(1 0 0 1 2498.877 536.2992)" class="st1 st3">Digit_[3:0]</text>
-	<text id="svg_62_1_" transform="matrix(1 0 0 1 1904.5957 583.7241)" class="st1 st3">dig_c</text>
-	<text id="svg_77_8_" transform="matrix(1 0 0 1 957.3357 611.1373)" class="st1 st3">spd_i</text>
-	<line id="svg_91_3_" class="st4" x1="402.7" y1="1056" x2="381.3" y2="1056"/>
-	<line id="svg_91_4_" class="st4" x1="402.7" y1="1089" x2="360.1" y2="1089"/>
+	<rect id="svg_4" x="201.5" y="66.9" class="st0" width="2123" height="1142.2"/>
+	<rect id="svg_43" x="1121.9" y="119" class="st0" width="1100" height="584.6"/>
+	<text id="svg_5" transform="matrix(1 0 0 1 461.7327 64.5781)" class="st1 st2">top</text>
+	<rect id="svg_3" x="1222.9" y="168.9" class="st0" width="150" height="150"/>
+	<text id="svg_8" transform="matrix(1 0 0 1 1222.8124 161.0436)" class="st1 st3">clock_enable_0</text>
+	<text id="svg_9" transform="matrix(1 0 0 1 329.136 386.635)" class="st1 st3">clock_enable_1</text>
+	<rect id="svg_11" x="1472.9" y="169" class="st0" width="150" height="150"/>
+	<text id="svg_14" transform="matrix(1 0 0 1 1472.8124 161.0436)" class="st1 st3">counter_up_down_0</text>
+	<rect id="svg_15" x="2422.9" y="169" class="st0" width="200" height="400"/>
+	<text id="svg_23" transform="matrix(1 0 0 1 2422.812 161.0436)" class="st1 st3">PMOD 7seg4</text>
+	<rect id="svg_28" x="31.5" y="650.9" class="st0" width="100" height="100"/>
+	<text id="svg_29" transform="matrix(1 0 0 1 31.4803 648.3145)" class="st1 st3">PMOD Hall</text>
+	<ellipse id="svg_37" class="st0" cx="81.5" cy="294.5" rx="10" ry="10"/>
+	<text id="svg_38" transform="matrix(1 0 0 1 71.4805 282.9086)" class="st1 st3">CLK_100_MHz</text>
+	<ellipse id="svg_39" class="st0" cx="81.5" cy="242.5" rx="10" ry="10"/>
+	<text id="svg_40" transform="matrix(1 0 0 1 71.4803 231.3497)" class="st1 st3">BTN0 - Reset</text>
+	<ellipse id="svg_41" class="st0" cx="81.5" cy="1021.9" rx="10" ry="10"/>
+	<text id="svg_42" transform="matrix(1 0 0 1 71.5001 1009.1027)" class="st1 st3">BTN1 - Display</text>
+	<rect id="svg_18" x="1722.9" y="169" class="st0" width="150" height="484.4"/>
+	<rect id="svg_19" x="1972.9" y="169" class="st0" width="150" height="150"/>
+	<text id="svg_20" transform="matrix(1 0 0 1 1972.8124 161.0436)" class="st1 st3">hex_7_seg</text>
+	<text id="svg_21" transform="matrix(1 0 0 1 1733.9215 186.1074)" class="st1 st3">process p_mux</text>
+	<line id="svg_44" class="st4" x1="2122.9" y1="244" x2="2422.9" y2="244"/>
+	<line id="svg_45" class="st4" x1="1972.9" y1="244" x2="1872.9" y2="244"/>
+	<text id="svg_46" transform="matrix(1 0 0 1 1122.8124 111.0436)" class="st1 st2">driver_7seg_4digits</text>
+	<text id="svg_47" transform="matrix(1 0 0 1 2076.8447 249.0436)" class="st1 st3">seg_o</text>
+	<text id="svg_48" transform="matrix(1 0 0 1 1975.3932 249.0436)" class="st1 st3">hex_i</text>
+	<line id="svg_50" class="st4" x1="2177.9" y1="233.2" x2="2172.1" y2="252.3"/>
+	<text id="svg_51" transform="matrix(1 0 0 1 2169.479 269.0436)" class="st1 st3">7</text>
+	<line id="svg_52" class="st4" x1="1924.9" y1="233" x2="1918.9" y2="253"/>
+	<text id="svg_53" transform="matrix(1 0 0 1 1915.8124 269.0436)" class="st1 st3">4</text>
+	<line id="svg_54" class="st4" x1="1872.9" y1="369" x2="2422.9" y2="369"/>
+	<line id="svg_55" class="st4" x1="1872.9" y1="419" x2="2422.9" y2="419"/>
+	<line id="svg_56" class="st4" x1="1923.9" y1="357" x2="1918.9" y2="377"/>
+	<line id="svg_57" class="st4" x1="1923.9" y1="409" x2="1918.9" y2="429"/>
+	<text id="svg_59" transform="matrix(1 0 0 1 1916.8124 390.996)" class="st1 st3">1</text>
+	<text id="svg_60" transform="matrix(1 0 0 1 1915.9076 442.996)" class="st1 st3">4</text>
+	<text id="svg_61" transform="matrix(1 0 0 1 1833.8763 374.0436)" class="st1 st3">dp_o</text>
+	<text id="svg_62" transform="matrix(1 0 0 1 1830.4679 423.2877)" class="st1 st3">dig_o</text>
+	<text id="svg_63" transform="matrix(1 0 0 1 1477.8124 189.0436)" class="st1 st3">g_CNT_WIDTH = 2</text>
+	<text id="svg_64" transform="matrix(1 0 0 1 1235.2592 186.916)" class="st1 st3">g_MAX = 400000</text>
+	<line id="svg_65" class="st4" x1="1722.9" y1="369" x2="1646.8" y2="369"/>
+	<text id="svg_66" transform="matrix(1 0 0 1 1726.7487 374.0436)" class="st1 st3">dp_i</text>
+	<line id="svg_67" class="st4" x1="1682.4" y1="359" x2="1677.1" y2="377.9"/>
+	<line id="svg_67_4_" class="st4" x1="853" y1="486.1" x2="847.7" y2="505"/>
+	<text id="svg_68" transform="matrix(1 0 0 1 1673.8124 391.9484)" class="st1 st3">4</text>
+	<text id="svg_68_6_" transform="matrix(1 0 0 1 853.1368 494.3574)" class="st1 st3">10</text>
+	<line id="svg_69" class="st4" x1="1722.9" y1="244" x2="1623.4" y2="244"/>
+	<line id="svg_71" class="st4" x1="1372.9" y1="219" x2="1472.9" y2="219"/>
+	<line id="svg_72" class="st4" x1="1677.7" y1="234.2" x2="1671.9" y2="253.3"/>
+	<text id="svg_73" transform="matrix(1 0 0 1 1669.86 267.0436)" class="st1 st3">2</text>
+	<text id="svg_74" transform="matrix(1 0 0 1 1581.0382 248.4753)" class="st1 st3">cnt_o</text>
+	<text id="svg_75" transform="matrix(1 0 0 1 1658.8124 226.0436)" class="st1 st3">s_cnt</text>
+	<text id="svg_76" transform="matrix(1 0 0 1 1907.8124 226.0436)" class="st1 st3">s_hex</text>
+	<text id="svg_77" transform="matrix(1 0 0 1 1475.5865 222.0436)" class="st1 st3">en_i</text>
+	<text id="svg_78" transform="matrix(1 0 0 1 1475.5865 249.0436)" class="st1 st3">cnt_up_i</text>
+	<text id="svg_79" transform="matrix(1 0 0 1 1476.3932 276.0436)" class="st1 st3">reset</text>
+	<text id="svg_80" transform="matrix(1 0 0 1 1488.2963 299.2526)" class="st1 st3">clk</text>
+	<line id="svg_87" class="st4" x1="1485.8" y1="294.5" x2="1472.9" y2="301.6"/>
+	<line id="svg_88" class="st4" x1="1485.8" y1="294.5" x2="1472.9" y2="287.3"/>
+	<text id="svg_89" transform="matrix(1 0 0 1 1403.7665 212.2822)" class="st1 st3">s_en</text>
+	<line id="svg_91" class="st4" x1="1472.9" y1="242.7" x2="1413.2" y2="242.7"/>
+	<text id="svg_94" transform="matrix(1 0 0 1 1335.4994 223.5938)" class="st1 st3">ce_o</text>
+	<text id="svg_95" transform="matrix(1 0 0 1 1226.4833 246.7542)" class="st1 st3">reset</text>
+	<text id="svg_96" transform="matrix(1 0 0 1 1237.7068 299.4697)" class="st1 st3">clk</text>
+	<line id="svg_99" class="st4" x1="1236.1" y1="294.5" x2="1222.9" y2="287.4"/>
+	<line id="svg_100" class="st4" x1="1236.1" y1="294.5" x2="1222.9" y2="301.8"/>
+	<text id="svg_101" transform="matrix(1 0 0 1 2155.5679 225.6395)" class="st1 st3">seg_o</text>
+	<line id="svg_65_1_" class="st4" x1="1222.9" y1="294.5" x2="91.5" y2="294.5"/>
+	<line id="svg_65_2_" class="st4" x1="329.1" y1="1021.9" x2="91.5" y2="1021.9"/>
+	<line id="svg_65_3_" class="st4" x1="1222.9" y1="242.5" x2="91.5" y2="242.5"/>
+	<line id="svg_65_4_" class="st4" x1="1472.9" y1="272.1" x2="1423.8" y2="272.1"/>
+	<line id="svg_65_5_" class="st4" x1="1472.9" y1="294.5" x2="1444.5" y2="294.5"/>
+	<line id="svg_65_6_" class="st4" x1="1423.8" y1="336.2" x2="1198.9" y2="336.2"/>
+	<line id="svg_65_7_" class="st4" x1="1444.5" y1="352.7" x2="1173.9" y2="352.7"/>
+	<line id="svg_93_2_" class="st4" x1="1423.8" y1="272.1" x2="1423.8" y2="336.2"/>
+	<line id="svg_93_3_" class="st4" x1="1444.5" y1="294.5" x2="1444.5" y2="352.7"/>
+	<line id="svg_93_4_" class="st4" x1="1198.9" y1="242.5" x2="1198.9" y2="336.2"/>
+	<line id="svg_93_5_" class="st4" x1="1173.9" y1="294.5" x2="1173.9" y2="352.7"/>
+	<rect id="svg_3_1_" x="329.2" y="391.4" class="st0" width="150" height="150"/>
+	<rect id="svg_3_2_" x="329.2" y="902.5" class="st0" width="150" height="150"/>
+	<rect id="svg_3_3_" x="881.4" y="897.6" class="st0" width="150" height="150"/>
+	<text id="svg_64_1_" transform="matrix(1 0 0 1 341.1995 412.1357)" class="st1 st3">g_MAX = 100000</text>
+	<line id="svg_71_2_" class="st4" x1="479.2" y1="437.3" x2="606.5" y2="437.3"/>
+	<rect id="svg_12_1_" x="606.5" y="391.5" class="st0" width="157.4" height="178.2"/>
+	<text id="svg_16_1_" transform="matrix(1 0 0 1 606.411 387.339)" class="st1 st3">counter_speed</text>
+	<text id="svg_77_1_" transform="matrix(1 0 0 1 609.1849 441.6533)" class="st1 st3">en_i</text>
+	<text id="svg_79_1_" transform="matrix(1 0 0 1 609.1847 524.8293)" class="st1 st3">reset</text>
+	<text id="svg_80_1_" transform="matrix(1 0 0 1 621.8948 547.8622)" class="st1 st3">clk</text>
+	<line id="svg_87_1_" class="st4" x1="619.4" y1="543.1" x2="606.5" y2="550.2"/>
+	<line id="svg_88_1_" class="st4" x1="619.4" y1="543.1" x2="606.5" y2="535.9"/>
+	<text id="svg_63_1_" transform="matrix(1 0 0 1 612.8608 412.2106)" class="st1 st3">g_CNT_WIDTH = 10</text>
+	<rect id="svg_12_2_" x="606.5" y="653.4" class="st0" width="157.4" height="150"/>
+	<rect id="svg_12_3_" x="606.5" y="898.6" class="st0" width="157.4" height="174.6"/>
+	<text id="svg_16_2_" transform="matrix(1 0 0 1 606.411 649.2601)" class="st1 st3">counter_distance</text>
+	<text id="svg_16_3_" transform="matrix(1 0 0 1 329.1359 896.9955)" class="st1 st3">btn_filter:in_filter</text>
+	<text id="svg_16_4_" transform="matrix(1 0 0 1 606.4108 893.4353)" class="st1 st3">signal_detect</text>
+	<text id="svg_16_5_" transform="matrix(1 0 0 1 881.4227 895.3876)" class="st1 st3">control</text>
+	<text id="svg_77_2_" transform="matrix(1 0 0 1 609.1849 703.5746)" class="st1 st3">hall_i</text>
+	<text id="svg_77_10_" transform="matrix(1 0 0 1 416.1938 694.2642)" class="st1 st3">s_hall</text>
+	<text id="svg_77_9_" transform="matrix(1 0 0 1 608.9373 992.3325)" class="st1 st3">clear_i</text>
+	<text id="svg_77_3_" transform="matrix(1 0 0 1 332.8069 1025.5471)" class="st1 st3">input</text>
+	<text id="svg_77_6_" transform="matrix(1 0 0 1 608.9375 942.1133)" class="st1 st3">input</text>
+	<text id="svg_78_3_" transform="matrix(1 0 0 1 609.4406 1034.4497)" class="st1 st3">time_short_i</text>
+	<text id="svg_78_7_" transform="matrix(1 0 0 1 883.7354 1010.3631)" class="st1 st3">clear_press_0</text>
+	<text id="svg_78_10_" transform="matrix(1 0 0 1 795.4393 1001.8938)" class="st1 st3">s_sd_clear</text>
+	<text id="svg_78_6_" transform="matrix(1 0 0 1 882.5999 961.9402)" class="st1 st3">long_press_i</text>
+	<text id="svg_78_9_" transform="matrix(1 0 0 1 663.8539 961.94)" class="st1 st3">long_signal_o</text>
+	<text id="svg_78_5_" transform="matrix(1 0 0 1 883.3253 935.3638)" class="st1 st3">short_press_i</text>
+	<text id="svg_78_8_" transform="matrix(1 0 0 1 659.1837 935.3638)" class="st1 st3">short_signal_o</text>
+	<text id="svg_78_11_" transform="matrix(1 0 0 1 796.4768 926.3401)" class="st1 st3">s_short</text>
+	<text id="svg_78_12_" transform="matrix(1 0 0 1 795.6346 953.8441)" class="st1 st3">s_long</text>
+	<text id="svg_78_4_" transform="matrix(1 0 0 1 609.9918 1055.8903)" class="st1 st3">time_long_i</text>
+	<text id="svg_79_2_" transform="matrix(1 0 0 1 609.9916 757.5746)" class="st1 st3">reset</text>
+	<text id="svg_79_5_" transform="matrix(1 0 0 1 608.9376 1012.8135)" class="st1 st3">reset</text>
+	<text id="svg_79_4_" transform="matrix(1 0 0 1 331.6562 949.3318)" class="st1 st3">reset</text>
+	<text id="svg_80_4_" transform="matrix(1 0 0 1 620.8339 969.6416)" class="st1 st3">clk</text>
+	<text id="svg_80_3_" transform="matrix(1 0 0 1 344.0306 980.5054)" class="st1 st3">clk</text>
+	<line id="svg_87_4_" class="st4" x1="619.3" y1="965.5" x2="606.4" y2="972.6"/>
+	<line id="svg_87_3_" class="st4" x1="342.1" y1="977" x2="329.2" y2="984.1"/>
+	<line id="svg_88_4_" class="st4" x1="619.3" y1="965.5" x2="606.4" y2="958.3"/>
+	<line id="svg_88_3_" class="st4" x1="342.1" y1="977.2" x2="329.2" y2="970"/>
+	<text id="svg_63_2_" transform="matrix(1 0 0 1 612.8608 674.1318)" class="st1 st3">g_CNT_WIDTH = 19</text>
+	<text id="svg_63_3_" transform="matrix(1 0 0 1 335.65 916.9322)" class="st1 st3">g_CNT_WIDTH = 3</text>
+	<text id="svg_63_4_" transform="matrix(1 0 0 1 609.1847 912.9638)" class="st1 st3">g_CNT_WIDTH = 32</text>
+	<text id="svg_95_1_" transform="matrix(1 0 0 1 332.8069 468.0337)" class="st1 st3">reset</text>
+	<text id="svg_95_2_" transform="matrix(1 0 0 1 498.5124 432.0801)" class="st1 st3">s_ce</text>
+	<text id="svg_95_3_" transform="matrix(1 0 0 1 442.6147 441.6533)" class="st1 st3">ce_1</text>
+	<text id="svg_96_1_" transform="matrix(1 0 0 1 344.0304 520.7493)" class="st1 st3">clk</text>
+	<line id="svg_99_1_" class="st4" x1="342.4" y1="515.7" x2="329.2" y2="508.6"/>
+	<line id="svg_100_1_" class="st4" x1="342.4" y1="515.7" x2="329.2" y2="523"/>
+	<line id="svg_93_7_" class="st4" x1="585.9" y1="514.1" x2="585.9" y2="965.5"/>
+	<line id="svg_93_1_" class="st4" x1="1064.7" y1="848.3" x2="1064.7" y2="985.9"/>
+	<line id="svg_93_8_" class="st4" x1="965.4" y1="785.5" x2="965.4" y2="848.3"/>
+	<line id="svg_65_8_" class="st4" x1="329.2" y1="463.6" x2="307.7" y2="463.6"/>
+	<line id="svg_65_9_" class="st4" x1="606.5" y1="543.1" x2="585.9" y2="543.1"/>
+	<line id="svg_65_10_" class="st4" x1="329.2" y1="515.7" x2="286.5" y2="515.7"/>
+	<line id="svg_65_17_" class="st4" x1="606.5" y1="965.5" x2="585.9" y2="965.5"/>
+	<line id="svg_65_19_" class="st4" x1="881.4" y1="930.7" x2="763.9" y2="930.7"/>
+	<line id="svg_65_21_" class="st4" x1="1064.9" y1="985.9" x2="1031.4" y2="985.9"/>
+	<line id="svg_65_24_" class="st4" x1="1064.7" y1="848.3" x2="965.4" y2="848.3"/>
+	<line id="svg_65_20_" class="st4" x1="881.4" y1="958.2" x2="763.9" y2="958.2"/>
+	<line id="svg_65_11_" class="st4" x1="881.4" y1="1006.3" x2="795.4" y2="1006.3"/>
+	<line id="svg_65_14_" class="st4" x1="606.4" y1="938.1" x2="479.2" y2="938.1"/>
+	<line id="svg_65_13_" class="st4" x1="606.5" y1="520.3" x2="563.4" y2="520.3"/>
+	<line id="svg_65_15_" class="st4" x1="606.5" y1="753.1" x2="563.4" y2="753.1"/>
+	<line id="svg_65_18_" class="st4" x1="606.5" y1="1009.1" x2="563.4" y2="1009.1"/>
+	<line id="svg_93_9_" class="st4" x1="563.4" y1="491.3" x2="563.4" y2="1009.1"/>
+	<line id="svg_93_10_" class="st4" x1="307.7" y1="242.5" x2="307.7" y2="944.5"/>
+	<line id="svg_93_11_" class="st4" x1="563.4" y1="242.5" x2="563.4" y2="491.7"/>
+	<line id="svg_93_12_" class="st4" x1="286.5" y1="294.5" x2="286.5" y2="977.5"/>
+	<line id="svg_93_13_" class="st4" x1="585.9" y1="294.5" x2="585.9" y2="514"/>
+	<line id="svg_65_16_" class="st4" x1="606.5" y1="699.6" x2="131.5" y2="699.6"/>
+	<text id="svg_77_5_" transform="matrix(1 0 0 1 724.6223 761.8149)" class="st1 st3">dis_o</text>
+	<text id="svg_77_4_" transform="matrix(1 0 0 1 432.2787 943.2474)" class="st1 st3">output</text>
+	<text id="svg_77_7_" transform="matrix(1 0 0 1 719.4017 499.6373)" class="st1 st3">spd_o</text>
+	<text id="svg_68_1_" transform="matrix(1 0 0 1 1660.5785 353.291)" class="st1 st3">(1101)</text>
+	<text id="svg_68_2_" transform="matrix(1 0 0 1 1938.073 365.532)" class="st1 st3">(”XXX.X”)</text>
+	<text id="svg_77_19_" transform="matrix(1 0 0 1 787.9844 491.8533)" class="st1 st3">s_spd</text>
+	<text id="svg_77_23_" transform="matrix(1 0 0 1 791.1104 753.0997)" class="st1 st3">s_dis</text>
+	<line id="svg_67_9_" class="st4" x1="846.6" y1="747.5" x2="841.3" y2="766.4"/>
+	<text id="svg_68_11_" transform="matrix(1 0 0 1 846.8666 755.9481)" class="st1 st3">19</text>
+	<rect id="svg_11_1_" x="882.6" y="393" class="st0" width="150" height="410.4"/>
+	<line id="svg_65_22_" class="st4" x1="882.6" y1="757.5" x2="763.9" y2="757.5"/>
+	<line id="svg_65_23_" class="st4" x1="882.6" y1="495.6" x2="763.9" y2="495.6"/>
+	<line id="svg_65_27_" class="st4" x1="1722.9" y1="549.9" x2="1032.6" y2="549.9"/>
+	<line id="svg_65_28_" class="st4" x1="1722.9" y1="566.8" x2="1032.6" y2="566.8"/>
+	<line id="svg_65_29_" class="st4" x1="1722.9" y1="585.8" x2="1032.6" y2="585.8"/>
+	<line id="svg_65_30_" class="st4" x1="1722.9" y1="604.7" x2="1032.6" y2="604.7"/>
+	<text id="svg_77_27_" transform="matrix(1 0 0 1 965.4109 553.9944)" class="st1 st3">data_o_0</text>
+	<text id="svg_77_28_" transform="matrix(1 0 0 1 965.4111 571.4741)" class="st1 st3">data_o_1</text>
+	<text id="svg_77_29_" transform="matrix(1 0 0 1 965.411 590.0884)" class="st1 st3">data_o_2</text>
+	<text id="svg_77_30_" transform="matrix(1 0 0 1 965.4111 609.2698)" class="st1 st3">data_o_3</text>
+	<text id="svg_77_34_" transform="matrix(1 0 0 1 1723.7162 553.9324)" class="st1 st3">data_i_0</text>
+	<text id="svg_77_33_" transform="matrix(1 0 0 1 1723.7167 571.4125)" class="st1 st3">data_i_1</text>
+	<text id="svg_77_32_" transform="matrix(1 0 0 1 1723.7164 590.0266)" class="st1 st3">data_i_2</text>
+	<text id="svg_77_31_" transform="matrix(1 0 0 1 1723.7164 609.2079)" class="st1 st3">data_i_3</text>
+	<text id="svg_77_38_" transform="matrix(1 0 0 1 1544.8507 545.5381)" class="st1 st3">s_data_0</text>
+	<text id="svg_77_37_" transform="matrix(1 0 0 1 1544.851 563.0178)" class="st1 st3">s_data_1</text>
+	<text id="svg_77_36_" transform="matrix(1 0 0 1 1544.8507 581.6321)" class="st1 st3">s_data_2</text>
+	<text id="svg_77_35_" transform="matrix(1 0 0 1 1544.851 600.8137)" class="st1 st3">s_data_3</text>
+	<text id="svg_21_1_" transform="matrix(1 0 0 1 898.4349 408.2313)" class="st1 st3">process p_control</text>
+	<text id="svg_77_39_" transform="matrix(1 0 0 1 883.7354 761.2491)" class="st1 st3">dis_i</text>
+	<line id="svg_65_31_" class="st4" x1="2661.7" y1="1259.8" x2="0" y2="1259.8"/>
+	<line id="svg_65_32_" class="st4" x1="2661.7" y1="0" x2="0" y2="0"/>
+	<line id="svg_93_15_" class="st4" x1="0" y1="0" x2="0" y2="1259.8"/>
+	<line id="svg_93_16_" class="st4" x1="2661.7" y1="0" x2="2661.7" y2="1259.8"/>
+	<ellipse id="svg_39_1_" class="st0" cx="1403.2" cy="242.7" rx="10" ry="10"/>
+	<text transform="matrix(1 0 0 1 1414.7584 241.1063)" class="st1 st3">3V3</text>
+	<line id="svg_93_6_" class="st4" x1="540.2" y1="491.7" x2="540.2" y2="699.6"/>
+	<line id="svg_65_12_" class="st4" x1="606.5" y1="491.7" x2="540.2" y2="491.7"/>
+	<text id="svg_79_3_" transform="matrix(1 0 0 1 609.1849 495.2014)" class="st1 st3">hall_i</text>
+	<text id="svg_61_1_" transform="matrix(1 0 0 1 2252.9097 366.7391)" class="st1 st3">JB7</text>
+	<text id="svg_61_2_" transform="matrix(1 0 0 1 2245.8794 239.1931)" class="st1 st3">JB[6:0]</text>
+	<text id="svg_61_3_" transform="matrix(1 0 0 1 2246.4312 414.114)" class="st1 st3">JC[3:0]</text>
+	<line id="svg_55_1_" class="st4" x1="1872.9" y1="467.7" x2="2422.9" y2="467.7"/>
+	<line id="svg_57_1_" class="st4" x1="1923.9" y1="457.7" x2="1918.9" y2="477.7"/>
+	<text id="svg_60_1_" transform="matrix(1 0 0 1 1915.9076 491.72)" class="st1 st3">1</text>
+	<text id="svg_61_7_" transform="matrix(1 0 0 1 2252.5635 465.2257)" class="st1 st3">JC4</text>
+	<text id="svg_61_4_" transform="matrix(1 0 0 1 2424.8882 248.4751)" class="st1 st3">Segment_[G:A]</text>
+	<text id="svg_61_5_" transform="matrix(1 0 0 1 2424.8887 374.0433)" class="st1 st3">DP</text>
+	<text id="svg_61_8_" transform="matrix(1 0 0 1 2424.8882 472.9553)" class="st1 st3">Colon</text>
+	<text id="svg_61_6_" transform="matrix(1 0 0 1 2425.2769 424.7992)" class="st1 st3">Digit_[3:0]</text>
+	<text id="svg_62_1_" transform="matrix(1 0 0 1 1830.9957 472.2241)" class="st1 st3">dig_c</text>
+	<text id="svg_77_8_" transform="matrix(1 0 0 1 883.7357 499.6373)" class="st1 st3">spd_i</text>
+	<line id="svg_91_3_" class="st4" x1="329.1" y1="944.5" x2="307.7" y2="944.5"/>
+	<line id="svg_91_4_" class="st4" x1="329.1" y1="977.5" x2="286.5" y2="977.5"/>
+	<path class="st4" d="M2732,0"/>
 </g>
 <text id="svg_60_2_" transform="matrix(1 0 0 1 2012.6486 575.1411)" class="st1 st3">(‘1’)</text>
+<path class="st4" d="M25.4,67.6"/>
+<path class="st4" d="M0,33.6"/>
+<path class="st5" d="M810,774"/>
 </svg>
