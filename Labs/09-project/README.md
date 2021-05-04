@@ -310,6 +310,58 @@ end Behavioral;
 
 
 
+### in_filter
+
+Modul [in_filter](VHDL/Designs/in_filter.vhd) jsme zkonstruovali kvuli známým problémům ohledně různých elektronických obvodů jako komparátory, relé, součástek jako tlačítka, přepínače, tzv. všude, kde se jedná o změnu logické úrovně, rychlé propojení vodivé cesty, kde se rychle přehoupneme z nízké napěťové úrovně do vysoké a zrovna tu se vytvoří svazek pár zakmitaných impulzů, s kterým si žádná logika sama neporadí, protože ta vnímá pouze čistý impulz do vysoké úrovně určité délky. Integrační synchronní filtr, který podle vstupujících vzorků zvyšuje nebo zmenšuje hodnotu, kterou potom testuje a když je nulová, nebo maximální, tak změní hodnotu na výstupu. U nás konrétně u projektu Console for bike ho používáme u jednoho jediného tlačítka, které nám mění informace zobrazující na displeji a například nastavení hodnoty obvodu kola, kde záleží na tom jak tlačítko zareaguje.
+
+![and_gates](Images/button_bounce.jpeg)
+
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity int_filter  is
+    Generic (
+        g_INT_SIZE  : natural := 4  -- internal buffer size in bits
+    );
+    Port (
+        input       : in  std_logic;    -- input to filter
+        clk         : in  std_logic;    -- clock for sampling
+        output      : out std_logic     -- output
+    );
+end in_filter;
+
+architecture Behavioral of in_filter is
+    signal s_input_sum  : unsigned(g_INT_SIZE - 1 downto 0);
+begin
+    p_in_filter : process(clk_in)
+    begin
+    if rising_edge(clk_in) then
+        if (input = '1') then 
+            if (s_input_sum >= 2**g_INT_SIZE - 2) then
+                output <= '1';
+                s_input_sum <= (others => '1');
+            else
+                s_input_sum <= s_input_sum + 1;
+            end if;
+        else
+            if ( s_input_sum <= 1) then
+                output <= '0';
+                s_input_sum <= (others => '0');
+            else
+                s_input_sum <= s_input_sum - 1;
+            end if;
+        end if;
+    end if;
+    end process p_in_filter;
+end Behavioral;
+```
+
+![and_gates](in_filter.PNG)
+
+
+
 ### process p_control
 
 
@@ -664,9 +716,11 @@ end Behavioral;
 
 ## Popis a simulácia TOP modulu
 
-V [top](VHDL/Designs/top.vhd) module je zobrazené celkové zapojenie cyklocomputera.
+V [top](VHDL/Designs/top.vhd) module je zobrazené celkové zapojenie cyklocomputera a stavový diagram obvodu.
 
 ![TOP](Images/TOP.svg)
+
+![TOP](Images/StateDiagram.svg)
 
 ```vhdl
 
