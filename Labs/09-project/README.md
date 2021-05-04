@@ -18,13 +18,21 @@ Tvorba cyklocomputeru, ktorý meria a zobrazuje rýchlosť a prejdenú vzdialeno
 
 ![Arty-A7](Images/Arty-A7.png)
 
+![Arty-A7](Images/Arty-A7-schema1.png)
+
+![Arty-A7](Images/Arty-A7-schema2.png)
+
 [Pmod 4x7seg](http://fpga.fm4dd.com/?pmod/7seg4) - 4-digit 7-segmentovka so spoločnou anódou. Segmentovka je zapojená na vysokorýchlostných Pmod JB a Pmod JC konektoroch bez ochranných rezistorov. Doska 7-segmentovky obsahuje vlastné ochranné rezistory. Multiplexovanie jednotlivých segmentoviek je každých 4 ms, čo pri 4 segmentovkách robí snímkovú frekvenciu 60 FPS a zabraňuje to blikaniu. Rýchlosť je zobrazená v km/h s maximálnou rýchlosťou 999,9 km/h a prejdená vzdialenosť v km s maximálnym nájazdom 999,9 km.
 
 ![4x7seg](Images/4x7seg.jpg)
 
+![4x7seg](Images/4x7seg-schema.png)
+
 [Pmod Hallova sonda](https://www.amazon.com/Sensor-Linear-Effect-Sensitivity-Detection/dp/B00W029QYC) - Hallova sonda 49E s komparátorom LM393. Obsahuje analógový a digitálny výstup. Má nastaviteľnú prahovú hodnotu komparačného napätia. Doska sondy je zapojená na štandardných Pmod JD konektoroch s ochrannými rezistormi, ktoré sa hodia ako ochrana pri použití na priame prepojenie s analógovým výstupom sondy (AOUT) alebo digitálnym výstupom komparátora (DOUT). Využitý je len DOUT ako indikácia otáčania kolesa bicykla.
 
 ![Hall](Images/Hall.jpg)
+
+![Hall](Images/Hall-schema.jpg)
 
 2. Zapojenie
 
@@ -79,8 +87,57 @@ Zapojenie Hallovej sondy
 ### clock_enable_1
 
 ```vhdl
+library ieee;               
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;   
 
+------------------------------------------------------------------------
+-- Entity declaration for clock enable
+------------------------------------------------------------------------
+entity clock_enable_1 is
+    generic(
+        g_MAX : natural := 100000    -- Number of clk pulses to generate                                
+    );  
+        
+    port(
+        clk   : in  std_logic;      
+        reset : in  std_logic;      
+        ce_1  : out std_logic      
+    );
+end entity clock_enable_1;
+
+------------------------------------------------------------------------
+-- Architecture body for clock enable
+------------------------------------------------------------------------
+architecture Behavioral of clock_enable_1 is
+
+    signal s_cnt_local : natural; -- Local counter
+    
+begin
+    p_clk_ena : process(clk)
+    begin
+        if rising_edge(clk) then       
+
+            if (reset = '1') then       
+                s_cnt_local <= 0;      
+                ce_1        <= '0';    
+                 
+            -- Test number of clock periods        
+            elsif (s_cnt_local >= (g_MAX - 1)) then   
+                s_cnt_local <= 0;       
+                ce_1        <= '1';     
+
+            else
+                s_cnt_local <= s_cnt_local + 1;
+                ce_1        <= '0';
+            end if;
+        end if;
+    end process p_clk_ena;
+
+end architecture Behavioral;
 ```
+
+![min](Images/clock_enable_1.png)
 
 
 
@@ -612,6 +669,13 @@ V `top` module je zobrazené celkové zapojenie cyklocomputera.
 ```vhdl
 
 ```
+
+
+
+## Výsledky
+
+
+
 
 ## Video
 
