@@ -322,7 +322,7 @@ end Behavioral;
 
 ### clock_enable_0
 
-Modul [clock_enable_0](VHDL/Designs/clock_enable_0.vhd) vytvára enable pulzy každé 4 milisekundy. To je dosiahnuté napočítaním 400000 impulzov 100 MHz interného hodinového signálu. Tieto 4 milisekundy sú potrebné pre časové multiplexovanie 7-segmentového displeja.
+Modul [clock_enable_0](VHDL/Designs/clock_enable.vhd) vytvára enable pulzy každé 4 milisekundy. To je dosiahnuté napočítaním 400000 impulzov 100 MHz interného hodinového signálu. Tieto 4 milisekundy sú potrebné pre časové multiplexovanie 7-segmentového displeja.
 
 ```vhdl
 library ieee;               
