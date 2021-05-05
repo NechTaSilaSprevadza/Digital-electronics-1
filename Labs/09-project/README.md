@@ -43,6 +43,15 @@ Funkcie tlačidiel
    | BTN0 | Reset |
    | BTN1 | Prepínanie zobrazenia aktuálnej rýchlosti a celkovej prejdenej vzdialenosti |
 
+Indikátory
+
+   | **Stav** | **indikátor** |
+   | :-: | :-: |
+   | nastavení obvodu kola | LED0 R |
+   | ujetá vzdálenost | LED0 G |
+   | rychlost | LED0 B |
+
+
 Zapojenie 7-segmentovky
 
    | **Konektor** | **Pin** | **Názov pinu** | **Funkcia pinu** |
@@ -1134,9 +1143,17 @@ V [top](VHDL/Designs/top.vhd) module je zobrazené celkové zapojenie cyklocompu
 
 ```vhdl
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
 
 entity top is
     Port 
@@ -1145,21 +1162,15 @@ entity top is
         BTN0        : in STD_LOGIC;
         BTN1        : in STD_LOGIC;
         PMOD_hall   : in STD_LOGIC;
-        SW         : in STD_LOGIC_VECTOR (1-1 downto 0);
-        SW0         : in STD_LOGIC_VECTOR (1-1 downto 0);
+--        SW1         : in STD_LOGIC;
+--        SW0         : in STD_LOGIC;
         LED         : out STD_LOGIC_VECTOR (4-1 downto 0);
-        CA          : out STD_LOGIC;
-        CB          : out STD_LOGIC;
-        CC          : out STD_LOGIC;
-        CD          : out STD_LOGIC;
-        CE          : out STD_LOGIC;
-        CF          : out STD_LOGIC;
-        CG          : out STD_LOGIC;
         AN          : out STD_LOGIC_VECTOR (8-1 downto 0);
-        JB          : out STD_LOGIC_VECTOR (7-1 downto 0);
-        JB7         : out STD_LOGIC;
-        JC          : out STD_LOGIC_VECTOR (4-1 downto 0);
-        JC4         : out STD_LOGIC
+        JB          : out STD_LOGIC_VECTOR (8-1 downto 0);
+        JC          : out STD_LOGIC_VECTOR (8-1 downto 0);
+        LED0_R      : out STD_LOGIC;
+        LED0_G      : out STD_LOGIC;
+        LED0_B      : out STD_LOGIC
     );
 end top;
 
@@ -1202,17 +1213,11 @@ begin
             
             dig_o      => JC(4-1 downto 0),
             
-            seg_o(0)   => CA,
-            seg_o(1)   => CB,
-            seg_o(2)   => CC,
-            seg_o(3)   => CD,
-            seg_o(4)   => CE,
-            seg_o(5)   => CF,
-            seg_o(6)   => CG,
+            seg_o      => JB(6 downto 0),
             
-            dp_i  => "1111",
-            dp_o  => JB7, --DP
-            dig_c => JC4
+            dp_i  => "1111", -- dot point
+            dp_o  => JB(7), --DP
+            dig_c => JC(7)
 
         );
 
@@ -1247,19 +1252,6 @@ begin
         cnt_o      =>   s_cnt
         
         );
-
---    -- Instance (copy) of hex_7seg entity
---    hex2seg : entity work.hex_7seg
---        port map(
---            hex_i    => s_cnt,
---            seg_o(6) => CA,
---            seg_o(5) => CB,
---            seg_o(4) => CC,
---            seg_o(3) => CD,
---            seg_o(2) => CE,
---            seg_o(1) => CF,
---            seg_o(0) => CG
---        );
 
 
 
@@ -1328,7 +1320,10 @@ begin
             data_o_0       => s_data_0,
             data_o_1       => s_data_1,
             data_o_2       => s_data_2,
-            data_o_3       => s_data_3
+            data_o_3       => s_data_3,
+            state_o(2)     => LED0_R,
+            state_o(1)     => LED0_G,
+            state_o(0)     => LED0_B
         );
 
     p_btn : entity work.in_filter
@@ -1353,16 +1348,15 @@ begin
         short_signal_o  => s_short,
         long_signal_o   => s_long
     );
-                  
+    JC(6 downto 4) <= (others => '0');              
 end Behavioral;
-
 ```
 
 
 
 ## Výsledky
 Podařilo se nám vytvořit počítač vzdálenosti a rychlosti na jízdní kolo nebo rotoped. Chyba měření rychlosti je velká při pomalé jízdě (zejména <20km/h). Přepínání mezi režimy je možno spínačem BTN1, jehož signál je zpracováván jednoduchým integračním filtrem kvůli debouncingu. Je možné přepínat mezi zobrazením vzdálenosti, rychlosti a nastavením obvodu kola. Velká část projektu byla poskládána z dříve vytvořených modulů z počítačových cvičení.
-
+Bitstream se nám bohužel vytvořit nepodařilo.
 
 
 ## Video
