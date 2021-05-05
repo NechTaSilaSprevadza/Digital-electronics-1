@@ -1356,7 +1356,7 @@ Podarilo sa nám vytvoriť počítadlo vzdialenosti a rýchlosti. Chyba měřen�
 
 ## Video
 
-[Video](https://drive.google.com/file/d/1lW2mAQtdswHChjIZ5Rc0qnjZ2q5AomU7/view?usp=sharing)
+Video [Link1 - GitHub](Video/Video.mp4) [Link2 - GDrive](https://drive.google.com/file/d/14M52apEbz8pRoPQC5oEJ6bb0CYge9-Ie/view?usp=sharing)
 
 ## Referencie
 
