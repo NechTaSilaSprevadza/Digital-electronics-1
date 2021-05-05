@@ -381,9 +381,6 @@ Modul [control](VHDL/Designs/control.vhd) má fungovať ako logika, ktorá prepo
 
 ```vhdl
 
---- control ---
--- author: Petr Dockalik, Ondrej Dudasek, 
-
 --- Description:
 -- Controller process for bicycle computer. 
 -- switches between three screens: speed, distance and set.
@@ -706,7 +703,7 @@ end architecture;
 ```
 
 ### divide 
-Modul [divide](VHDL/Designs/multiply.vhd) je dělič, vnitřně pracující se vstupy jako unsigned, s nastavitelnou velikostí. Pracuje synchronně, při nulovým jmenovatelem zachovává předchozí hodnotu. 
+Modul [divide](VHDL/Designs/divide.vhd) je dělič, vnitřně pracující se vstupy jako unsigned, s nastavitelnou velikostí. Pracuje synchronně, při nulovým jmenovatelem zachovává předchozí hodnotu. 
 
 ![divide](Images/divide/testbench.png)
 
@@ -745,7 +742,7 @@ end Behavioral;
 ```
 
 ### decimal_to_bcd
-Modul [decimal to bcd](VHDL/Designs/decimal_to_bcd) slouží jako převodník z 14 bit vstupu na 4 4bitové BCD výstupy. Výhodou jeho návrhu je, že při vstupu větším 9999 zobrazuje nejmenší 4 číslice stále bez chyby. 
+Modul [decimal to bcd](VHDL/Designs/decimal_to_bcd.vhd) slouží jako převodník z 14 bit vstupu na 4 4bitové BCD výstupy. Výhodou jeho návrhu je, že při vstupu větším 9999 zobrazuje nejmenší 4 číslice stále bez chyby. 
 
 ![divide](Images/decimal_to_bcd/testbench.png)
 
@@ -787,7 +784,6 @@ begin
         end if;
     end process;
 end Behavioral;
-
 ```
 
 
@@ -1142,7 +1138,6 @@ V [top](VHDL/Designs/top.vhd) module je zobrazené celkové zapojenie cyklocompu
 ![TOP](Images/StateDiagram.svg)
 
 ```vhdl
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -1355,8 +1350,8 @@ end Behavioral;
 
 
 ## Výsledky
-Podařilo se nám vytvořit počítač vzdálenosti a rychlosti na jízdní kolo nebo rotoped. Chyba měření rychlosti je velká při pomalé jízdě (zejména <20km/h). Přepínání mezi režimy je možno spínačem BTN1, jehož signál je zpracováván jednoduchým integračním filtrem kvůli debouncingu. Je možné přepínat mezi zobrazením vzdálenosti, rychlosti a nastavením obvodu kola. Velká část projektu byla poskládána z dříve vytvořených modulů z počítačových cvičení.
-Bitstream se nám bohužel vytvořit nepodařilo.
+Podarilo sa nám vytvoriť počítadlo vzdialenosti a rýchlosti. Chyba měření rychlosti je velká při pomalé jízdě (zejména <20km/h). Vytvorili sme debouncing potrebný pri stláčaní tlačidla. Přepínání mezi režimy je možno spínačem BTN1, jehož signál je zpracováván jednoduchým integračním filtrem kvůli debouncingu. Je možné přepínat mezi zobrazením vzdálenosti, rychlosti a nastavením obvodu kola. Velká část projektu byla poskládána z dříve vytvořených modulů z počítačových cvičení. Bitstream se nám bohužel vytvořit nepodařilo. Komplexná kontrolná logika sa stará o prepočeť na rýchlosť a vzdialenosť. Display driver je použitý z minulých cvičení a riadi displej zložený zo 4 7-segemntoviek.
+
 
 
 ## Video
