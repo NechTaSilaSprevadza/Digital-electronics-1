@@ -61,15 +61,24 @@ architecture Behavioral of top is
     signal s_en  : std_logic;
     signal s_ce  : std_logic;
     -- Internal counter
-    signal s_cnt : std_logic_vector(3 - 1 downto 0);
-    signal s_spd : std_logic_vector(11 - 1 downto 0);
-    signal s_dis : std_logic_vector(20 - 1 downto 0);
+    signal s_cnt : std_logic_vector(2 - 1 downto 0);
+    signal s_spd : std_logic_vector(10 - 1 downto 0);
+    signal s_dis : std_logic_vector(23 - 1 downto 0);
     --PMOD Hall
     signal s_hall  : std_logic;
+    
+    -- button input signal
+    signal s_inp    : std_logic;
+    
     
     signal s_short :std_logic;
     signal s_long :std_logic;
     signal s_sd_clear :std_logic;
+    
+    signal s_data_0 : std_logic_vector(4 - 1 downto 0);
+    signal s_data_1 : std_logic_vector(4 - 1 downto 0);
+    signal s_data_2 : std_logic_vector(4 - 1 downto 0);
+    signal s_data_3 : std_logic_vector(4 - 1 downto 0);
 begin
 
     -- Instance (copy) of driver_7seg_4digits entity
@@ -78,13 +87,11 @@ begin
             clk        => CLK100MHZ,
             reset      => BTN0,
             
-            data_i_1    => "0000",
-            data_i_2    => "0000",
-            data_i_3    => "0000",
-            data_i_0(0) => SW(0),
-            data_i_0(1) => SW(1),
-            data_i_0(2) => SW(2),
-            data_i_0(3) => SW(3),
+            data_i_0    => s_data_0,
+            data_i_1    => s_data_1,
+            data_i_2    => s_data_2,
+            data_i_3    => s_data_3,
+            
             
             dig_o      => JC(4-1 downto 0),
             
@@ -96,7 +103,7 @@ begin
             seg_o(5)   => CF,
             seg_o(6)   => CG,
             
-            dp_i  => "1101",
+            dp_i  => "1111",
             dp_o  => JB7, --DP
             dig_c => JC4
 
@@ -134,18 +141,18 @@ begin
         
         );
 
-    -- Instance (copy) of hex_7seg entity
-    hex2seg : entity work.hex_7seg
-        port map(
-            hex_i    => s_cnt,
-            seg_o(6) => CA,
-            seg_o(5) => CB,
-            seg_o(4) => CC,
-            seg_o(3) => CD,
-            seg_o(2) => CE,
-            seg_o(1) => CF,
-            seg_o(0) => CG
-        );
+--    -- Instance (copy) of hex_7seg entity
+--    hex2seg : entity work.hex_7seg
+--        port map(
+--            hex_i    => s_cnt,
+--            seg_o(6) => CA,
+--            seg_o(5) => CB,
+--            seg_o(4) => CC,
+--            seg_o(3) => CD,
+--            seg_o(2) => CE,
+--            seg_o(1) => CF,
+--            seg_o(0) => CG
+--        );
 
 
 
@@ -185,7 +192,7 @@ begin
     bin_cnt_distance : entity work.cnt_distance
         generic map(
         
-        g_CNT_WIDTH => 4
+        g_CNT_WIDTH => 23
 
         )
         port map(
@@ -203,22 +210,41 @@ begin
             speed_i     => s_spd,
             clk         => CLK100MHZ,
             reset_i     => BTN0,
-            distance_i  =>s_dis,
+            distance_i  => s_dis,
              
             -- press_detect interface
             short_press_i  => s_short, 
             long_press_i   => s_long,
-            clear_press_o  => s_sd_clear
-                     
+            clear_press_o  => s_sd_clear,
+            
+            -- outputs
+            data_o_0       => s_data_0,
+            data_o_1       => s_data_1,
+            data_o_2       => s_data_2,
+            data_o_3       => s_data_3
         );
 
     p_btn : entity work.in_filter
         port map(
-        
-            input     => s_inp,
-            clk       => CLK100MHZ,
-            output    => BTN1
+            input     => BTN1,
+            clk       => s_ce,
+            output    => s_inp
 
         );
+    
+    p_press_detect  : entity work.signal_detect
+    generic map(
+        g_CNT_WIDTH     => 10
+        )
+    port map(
+        input           => s_inp,
+        clk             => CLK100MHZ,
+        clear_i         => s_sd_clear,
+        reset_i         => BTN0,
+        time_short_i    => "0001010000", -- 80ms
+        time_long_i     => "0100101100", -- 300ms
+        short_signal_o  => s_short,
+        long_signal_o   => s_long
+    );
                   
 end Behavioral;

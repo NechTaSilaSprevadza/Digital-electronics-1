@@ -366,8 +366,22 @@ end Behavioral;
 
 Modul [control](VHDL/Designs/control.vhd) má fungovať ako logika, ktorá prepočítava hodnoty z čítačov na čísla, ktoré sa zobrazujú na displeji..
 
+#### přepínání mezi režimy
+![switch modes](Images/control/set_modes.png)
+![set circumference](Images/control/set_circumference.png)
 
 ```vhdl
+
+--- control ---
+-- author: Petr Dockalik, Ondrej Dudasek, 
+
+--- Description:
+-- Controller process for bicycle computer. 
+-- switches between three screens: speed, distance and set.
+-- Calculates speed and distance from inputs and internal signal s_circumference
+-- changeable via set screen. Turns off screen when no activity is detected in 60 seconds.
+-- Works with 1
+
 library IEEE;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_1164.all;
@@ -378,8 +392,8 @@ entity control is
         clk       : in std_logic;
         -- inputs
         reset_i     : in std_logic;
-        speed_i     : in std_logic_vector(9 downto 0);
-        distance_i  : in std_logic_vector(18 downto 0);
+        speed_i     : in std_logic_vector(10 - 1 downto 0);
+        distance_i  : in std_logic_vector(23 - 1 downto 0);
         
         -- press_detect interface
         short_press_i   : in std_logic;
@@ -388,16 +402,11 @@ entity control is
         
         -- outputs
         state_o     : out std_logic_vector(3 - 1 downto 0);
-        data_o_0    : out std_logic_vector(7 downto 0); -- display outputs
-        data_o_1    : out std_logic_vector(7 downto 0);
-        data_o_2    : out std_logic_vector(7 downto 0);
-        data_o_3    : out std_logic_vector(7 downto 0);
+        data_o_0    : out std_logic_vector(3 downto 0); -- display outputs
+        data_o_1    : out std_logic_vector(3 downto 0);
+        data_o_2    : out std_logic_vector(3 downto 0);
+        data_o_3    : out std_logic_vector(3 downto 0)
         
-        speed_o     : out unsigned(8 - 1 downto 0);
-        distance_o  : out unsigned(13 - 1 downto 0);
-        CIRCUMFERENCE_o    : out unsigned(9 - 1 downto 0)
-
-
     );
 end control;
 
@@ -408,18 +417,40 @@ architecture Behavioral of control is
     signal s_state      : t_state;
     
     -- clear press detect signals
-    signal s_pd_clear   : std_logic;
-    signal s_clear_wipe : std_logic;
+    signal s_clear         : std_logic;
+    signal s_clear_wipe2   : std_logic;
     
     --- computational signals
     -- 9 multiplied by 9 bits is 18, without 6 is 12
-    signal s_speed                  : unsigned(19 - 1 downto 0); -- max 256km/h
+    signal s_speed_cms      : std_logic_vector(20 - 1 downto 0);
+    signal s_speed_mh       : std_logic_vector(25 - 1 downto 0);
+    signal s_speed_kmh      : std_logic_vector(25 - 1 downto 0);
     -- 18 * 9 = 27
-    signal s_distance               : unsigned(28 - 1 downto 0); -- 4 digits of distance
-    signal s_data_o_0               : std_logic_vector(7 downto 0);
-    signal s_data_o_1               : std_logic_vector(7 downto 0);
-    signal s_data_o_2               : std_logic_vector(7 downto 0);
-    signal s_data_o_3               : std_logic_vector(7 downto 0);
+    signal s_distance_cm    : std_logic_vector(30 - 1 downto 0);
+    signal s_distance_km    : std_logic_vector(30 - 1 downto 0);
+    
+    
+    
+    signal s_data_o_0               : std_logic_vector(3 downto 0);
+    signal s_data_o_1               : std_logic_vector(3 downto 0);
+    signal s_data_o_2               : std_logic_vector(3 downto 0);
+    signal s_data_o_3               : std_logic_vector(3 downto 0);
+    
+    signal s_speed_o_0               : std_logic_vector(3 downto 0);
+    signal s_speed_o_1               : std_logic_vector(3 downto 0);
+    signal s_speed_o_2               : std_logic_vector(3 downto 0);
+    signal s_speed_o_3               : std_logic_vector(3 downto 0);
+    
+    signal s_set_o_0               : std_logic_vector(3 downto 0);
+    signal s_set_o_1               : std_logic_vector(3 downto 0);
+    signal s_set_o_2               : std_logic_vector(3 downto 0);
+    signal s_set_o_3               : std_logic_vector(3 downto 0);
+    
+    signal s_dist_o_0               : std_logic_vector(3 downto 0);
+    signal s_dist_o_1               : std_logic_vector(3 downto 0);
+    signal s_dist_o_2               : std_logic_vector(3 downto 0);
+    signal s_dist_o_3               : std_logic_vector(3 downto 0);
+    
     signal s_WHEEL_CIRCUMFERENCE    : unsigned(9 - 1 downto 0);
 
     -- constants 
@@ -427,23 +458,120 @@ architecture Behavioral of control is
 
 begin
     
+    -- conversion processes
+    -- multiply wheel impulses with wheel circumference
+    dist_circumference_multiply : entity work.multiply
+    generic map(
+        g_WIDTH => 30
+    ) 
+    port map (
+        input_1(23 - 1 downto 0)    => distance_i,
+        input_1(30 - 1 downto 23)   => (others => '0'), 
+        input_2(9 - 1  downto 0)    => std_logic_vector(s_WHEEL_CIRCUMFERENCE),
+        input_2(30 - 1 downto 9)    => (others => '0'),
+        clk                         => clk,
+        output                      => s_distance_cm
+    );
+    
+    -- convert distance from cm to km
+    dist_km_divide  : entity work.divide
+    generic map(
+        g_WIDTH => 30
+    ) 
+    port map (
+        input_1     => s_distance_cm,
+        input_2     => std_logic_vector(TO_UNSIGNED(100000, 30)),
+        clk         => clk,
+        output      => s_distance_km
+    );
+    
+    dist_to_bcd : entity work.decimal_to_bcd
+    port map(
+        input       => s_distance_km(14 - 1 downto 0),
+        clk         => clk,
+        output_0    => s_dist_o_0,
+        output_1    => s_dist_o_1,
+        output_2    => s_dist_o_2,
+        output_3    => s_dist_o_3
+    );
+    
+    
+    --- speed
+    speed_circumference_multiply : entity work.multiply
+    generic map(
+        g_WIDTH => 20
+    ) 
+    port map (
+        input_1(10 - 1 downto 0)    => speed_i,
+        input_1(20 - 1 downto 10)   => (others => '0'), 
+        input_2(9  - 1 downto 0)    => std_logic_vector(s_WHEEL_CIRCUMFERENCE),
+        input_2(20 - 1 downto 9)    => (others => '0'),
+        clk                         => clk,
+        output                      => s_speed_cms
+    );
+    
+    speed_hour_multiply : entity work.multiply
+    generic map(
+        g_WIDTH => 25
+    ) 
+    port map (
+        input_1(20 - 1 downto 0)    => s_speed_cms,
+        input_1(25 - 1 downto 20)   => (others => '0'), 
+        input_2(25 - 1 downto 0)    => std_logic_vector(TO_UNSIGNED(36, 25)),
+        clk                         => clk,
+        output                      => s_speed_mh
+    );
+    
+    speed_1000_divide : entity work.divide
+    generic map(
+        g_WIDTH => 25
+    )
+    port map(
+        input_1      => s_speed_mh,
+        input_2      => std_logic_vector(TO_UNSIGNED(1000, 25)),
+        clk          => clk,
+        output       => s_speed_kmh
+    );
+    
+    speed_to_bcd : entity work.decimal_to_bcd
+    port map(
+        input       => s_speed_kmh(14 - 1 downto 0),
+        clk         => clk,
+        output_0    => s_speed_o_0,
+        output_1    => s_speed_o_1,
+        output_2    => s_speed_o_2,
+        output_3    => s_speed_o_3
+    );
+    
+    circumference_to_bcd : entity work.decimal_to_bcd
+    port map(
+        input(9 - 1 downto 0)   => std_logic_vector(s_WHEEL_CIRCUMFERENCE),
+        input(14 - 1 downto 9)  => (others => '0'),
+        clk                     => clk,
+        output_0                => s_set_o_0,
+        output_1                => s_set_o_1,
+        output_2                => s_set_o_2,
+        output_3                => s_set_o_3
+    );
+    
+    
     --- Finite state machine
     p_control_fsm : process(clk)
     begin
         if rising_edge(clk) then
             if (reset_i = '1') then -- reset
                 s_state <= SET;
-                s_pd_clear <= '1';
-                s_clear_wipe <= '0';
+                s_clear <= '1';
+                s_clear_wipe2 <= '0';
                 s_WHEEL_CIRCUMFERENCE <= TO_UNSIGNED(150, 9);
 
             -- wheel circumference set
             elsif s_state = SET then    
                 if (long_press_i = '1') then
-                    s_pd_clear <= '1';
+                    s_clear <= '1';
                     s_state <= SPD;
                 elsif (short_press_i = '1') then
-                    s_pd_clear <= '1';
+                    s_clear <= '1';
                     if (s_WHEEL_CIRCUMFERENCE = TO_UNSIGNED(400, 9)) then
                         s_WHEEL_CIRCUMFERENCE <= TO_UNSIGNED(150, 9);
                     else
@@ -455,10 +583,10 @@ begin
             -- show distance
             elsif s_state = DST then
                 if (long_press_i = '1') then
-                    s_pd_clear <= '1';
+                    s_clear <= '1';
                     s_state <= SET;
                 elsif (short_press_i = '1') then
-                    s_pd_clear <= '1';
+                    s_clear <= '1';
                     s_state <= SPD;
                 end if;
             
@@ -466,91 +594,192 @@ begin
             -- show speed
             elsif s_state = SPD then        -- show speed
                 if (long_press_i = '1') then
-                    s_pd_clear <= '1';
+                    s_clear <= '1';
                     s_state <= SET;
                 elsif (short_press_i = '1') then
-                    s_pd_clear <= '1';
+                    s_clear <= '1';
                     s_state <= DST;
                 end if;
             
             else    -- unknown state
                 s_state <= SET;
             end if;
-        end if;
-    end process;
-
-    p_output : process(clk)
-    begin
-        if rising_edge(clk) and (reset_i = '0') then
-            s_distance <= resize(((unsigned(distance_i) * s_WHEEL_CIRCUMFERENCE)/100), 28);
-            s_distance <= resize((s_distance - (s_distance/10000)*10000), 28);
-            s_speed <= resize((unsigned(speed_i)*s_WHEEL_CIRCUMFERENCE)/360, 19);
-            s_speed <= resize((s_speed - (s_distance/1000)*1000), 19);
             
-            if (s_state = SET) then -- set circumference mode
-                state_o <= "100";
-                s_data_o_3 <= X"00";
-                s_data_o_2 <= std_logic_vector(s_WHEEL_CIRCUMFERENCE/100);
-                s_data_o_1 <= std_logic_vector((s_WHEEL_CIRCUMFERENCE
-                    - unsigned(s_data_o_2))/10);
-                s_data_o_0 <= std_logic_vector((s_WHEEL_CIRCUMFERENCE
-                    - unsigned(s_data_o_2) - unsigned(s_data_o_1))/10);
-                
-            elsif (s_state = DST) then  -- display distance mode
-                state_o <= "010";
-                s_data_o_3 <= std_logic_vector((s_distance)/1000);
-                s_data_o_2 <= std_logic_vector(
-                    (s_distance - unsigned(s_data_o_3)*1000)/100);
-                s_data_o_1 <= std_logic_vector(
-                    (s_distance - unsigned(s_data_o_3)*1000
-                     - unsigned(s_data_o_2)*100)/10);
-                s_data_o_0 <= std_logic_vector(
-                    s_distance - unsigned(s_data_o_3)*1000
-                     - unsigned(s_data_o_2)*100 - unsigned(s_data_o_1)*10);
-                     
-            elsif (s_state = SPD) then  -- display speed mode
-                state_o <= "001";
-                s_data_o_3 <= std_logic_vector(s_speed/1000);
-                s_data_o_2 <= std_logic_vector(
-                    (s_speed - unsigned(s_data_o_3)*1000)/100);
-                s_data_o_1 <= std_logic_vector(
-                    (s_speed - unsigned(s_data_o_3)*1000
-                     - unsigned(s_data_o_2)*100)/10);
-                s_data_o_0 <= std_logic_vector(
-                    s_speed - unsigned(s_data_o_3)*1000
-                    - unsigned(s_data_o_2)*100 - unsigned(s_data_o_1)*10);
-            else
-                state_o <= "000";
-            end if;
-        end if;
-    end process;
-
-    --    Limit clear press detect to two clock cycles
-    p_clean_wiper : process(clk)
-    begin
-        if rising_edge(clk) then
-            if (s_pd_clear = '1') then
-                if (s_clear_wipe = '1') then
-                    s_pd_clear <= '0';
-                    s_clear_wipe <= '0';
-                else
-                    s_clear_wipe <= '1';
-                end if;
+            -- clear bit wipe in next clock
+            if (s_clear = '1') then
+                s_clear <= '0';
+--                if (s_clear_wipe2 = '1') then
+--                    clear_press_o <= '0';
+--                    s_clear <= '0';
+--                    s_clear_wipe2 <= '0';
+--                else
+--                    s_clear_wipe2 <= '1';
+--                end if;
             end if;
         end if;
     end process;
     
-    data_o_3 <= s_data_o_3;
-    data_o_2 <= s_data_o_2;
-    data_o_1 <= s_data_o_1;
-    data_o_0 <= s_data_o_0; 
-    clear_press_o <= s_pd_clear;
-    distance_o  <= resize(s_distance, 13);
-    speed_o     <= resize(s_speed, 8);
-    CIRCUMFERENCE_o <= s_WHEEL_CIRCUMFERENCE;
+    
+    p_output : process(clk)
+    begin
+        if rising_edge(clk) and (reset_i = '0') then
+            if (s_state = SET) then -- set circumference mode
+                state_o <= "100";
+                s_data_o_3 <= s_set_o_3;
+                s_data_o_2 <= s_set_o_2;
+                s_data_o_1 <= s_set_o_1;
+                s_data_o_0 <= s_set_o_0;
+    
+            elsif (s_state = DST) then 
+                state_o <= "010";
+                s_data_o_3 <= s_dist_o_3;
+                s_data_o_2 <= s_dist_o_2;
+                s_data_o_1 <= s_dist_o_1;
+                s_data_o_0 <= s_dist_o_0;
+    
+             elsif (s_state = SPD) then 
+                state_o <= "001";
+                s_data_o_3 <= s_speed_o_3;
+                s_data_o_2 <= s_speed_o_2;
+                s_data_o_1 <= s_speed_o_1;
+                s_data_o_0 <= s_speed_o_0;
+             else
+                state_o <= "000";
+             end if;
+        end if;
+    end process;
+    
+    clear_press_o <= s_clear;
+    data_o_0      <= s_data_o_0;
+    data_o_1      <= s_data_o_1;
+    data_o_2      <= s_data_o_2;
+    data_o_3      <= s_data_o_3;
+    
 end Behavioral;
 ```
 
+### multiply
+Modul [multiply](VHDL/Designs/multiply.vhd) je násobička, vnitřně pracující se vstupy jako unsigned, s nastavitelnou velikostí. Pracuje synchronně. 
+
+![multiply](Images/multiply/testbench.png)
+
+``` vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity multiply is 
+    Generic (
+        g_WIDTH : natural := 8
+    );
+    Port(
+        input_1     : in  std_logic_vector(g_WIDTH - 1 downto 0);
+        input_2     : in  std_logic_vector(g_WIDTH - 1 downto 0);
+        clk         : in  std_logic;
+        output      : out std_logic_vector(g_WIDTH - 1 downto 0)
+    );
+end entity;
+
+architecture Behavioral of multiply is
+
+begin
+
+    p_multiply  : process(clk)
+    begin
+        if rising_edge(clk) then
+            output <= std_logic_vector(
+                resize(
+                    unsigned(input_1) * unsigned(input_2), g_WIDTH)
+                );
+        end if;
+    end process;
+end architecture;
+```
+
+### divide 
+Modul [divide](VHDL/Designs/multiply.vhd) je dělič, vnitřně pracující se vstupy jako unsigned, s nastavitelnou velikostí. Pracuje synchronně, při nulovým jmenovatelem zachovává předchozí hodnotu. 
+
+![divide](Images/divide/testbench.png)
+
+``` vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity divide is
+    Generic (
+        g_WIDTH : natural := 8
+    );
+    Port(
+        input_1     : in  std_logic_vector(g_WIDTH - 1 downto 0);
+        input_2     : in  std_logic_vector(g_WIDTH - 1 downto 0);
+        clk         : in  std_logic;
+        output      : out std_logic_vector(g_WIDTH - 1 downto 0)
+        
+    );
+end divide;
+
+architecture Behavioral of divide is
+
+begin
+    p_multiply  : process(clk)
+    begin
+        if rising_edge(clk) and (unsigned(input_2) > 0) then
+            output <= std_logic_vector(resize(
+                unsigned(input_1) / unsigned(input_2), g_WIDTH)
+                );
+        end if;
+    end process;
+
+end Behavioral;
+
+```
+
+### decimal_to_bcd
+Modul [decimal to bcd](VHDL/Designs/decimal_to_bcd) slouží jako převodník z 14 bit vstupu na 4 4bitové BCD výstupy. Výhodou jeho návrhu je, že při vstupu větším 9999 zobrazuje nejmenší 4 číslice stále bez chyby. 
+
+![divide](Images/decimal_to_bcd/testbench.png)
+
+
+``` vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+use IEEE.NUMERIC_STD.ALL;
+
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity decimal_to_bcd is
+    Port (
+        input       : in  std_logic_vector(14 - 1 downto 0); -- log2(9999)
+        clk         : in  std_logic;
+        output_0    : out std_logic_vector(4 - 1 downto 0);
+        output_1    : out std_logic_vector(4 - 1 downto 0);
+        output_2    : out std_logic_vector(4 - 1 downto 0);
+        output_3    : out std_logic_vector(4 - 1 downto 0)
+    );
+end decimal_to_bcd;
+
+architecture Behavioral of decimal_to_bcd is
+begin
+    decimal_to_bcd : process (clk)
+    begin
+        if rising_edge(clk) then
+            output_0 <= std_logic_vector(resize(
+                (unsigned(input) - 10*(unsigned(input)/10)), 4));
+            output_1 <= std_logic_vector(resize(
+                ((unsigned(input) - 100*(unsigned(input)/100))/10), 4));
+            output_2 <= std_logic_vector(resize(
+                ((unsigned(input) - 1000*(unsigned(input)/1000))/100), 4));
+            output_3 <= std_logic_vector(resize(
+                ((unsigned(input) - 10000*(unsigned(input)/10000))/1000), 4));
+        end if;
+    end process;
+end Behavioral;
+
+```
 
 
 ### clock_enable_0
@@ -904,17 +1133,10 @@ V [top](VHDL/Designs/top.vhd) module je zobrazené celkové zapojenie cyklocompu
 ![TOP](Images/StateDiagram.svg)
 
 ```vhdl
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity top is
     Port 
@@ -946,15 +1168,24 @@ architecture Behavioral of top is
     signal s_en  : std_logic;
     signal s_ce  : std_logic;
     -- Internal counter
-    signal s_cnt : std_logic_vector(3 - 1 downto 0);
-    signal s_spd : std_logic_vector(11 - 1 downto 0);
-    signal s_dis : std_logic_vector(20 - 1 downto 0);
+    signal s_cnt : std_logic_vector(2 - 1 downto 0);
+    signal s_spd : std_logic_vector(10 - 1 downto 0);
+    signal s_dis : std_logic_vector(23 - 1 downto 0);
     --PMOD Hall
     signal s_hall  : std_logic;
+    
+    -- button input signal
+    signal s_inp    : std_logic;
+    
     
     signal s_short :std_logic;
     signal s_long :std_logic;
     signal s_sd_clear :std_logic;
+    
+    signal s_data_0 : std_logic_vector(4 - 1 downto 0);
+    signal s_data_1 : std_logic_vector(4 - 1 downto 0);
+    signal s_data_2 : std_logic_vector(4 - 1 downto 0);
+    signal s_data_3 : std_logic_vector(4 - 1 downto 0);
 begin
 
     -- Instance (copy) of driver_7seg_4digits entity
@@ -963,13 +1194,11 @@ begin
             clk        => CLK100MHZ,
             reset      => BTN0,
             
-            data_i_1    => "0000",
-            data_i_2    => "0000",
-            data_i_3    => "0000",
-            data_i_0(0) => SW(0),
-            data_i_0(1) => SW(1),
-            data_i_0(2) => SW(2),
-            data_i_0(3) => SW(3),
+            data_i_0    => s_data_0,
+            data_i_1    => s_data_1,
+            data_i_2    => s_data_2,
+            data_i_3    => s_data_3,
+            
             
             dig_o      => JC(4-1 downto 0),
             
@@ -981,7 +1210,7 @@ begin
             seg_o(5)   => CF,
             seg_o(6)   => CG,
             
-            dp_i  => "1101",
+            dp_i  => "1111",
             dp_o  => JB7, --DP
             dig_c => JC4
 
@@ -1019,18 +1248,18 @@ begin
         
         );
 
-    -- Instance (copy) of hex_7seg entity
-    hex2seg : entity work.hex_7seg
-        port map(
-            hex_i    => s_cnt,
-            seg_o(6) => CA,
-            seg_o(5) => CB,
-            seg_o(4) => CC,
-            seg_o(3) => CD,
-            seg_o(2) => CE,
-            seg_o(1) => CF,
-            seg_o(0) => CG
-        );
+--    -- Instance (copy) of hex_7seg entity
+--    hex2seg : entity work.hex_7seg
+--        port map(
+--            hex_i    => s_cnt,
+--            seg_o(6) => CA,
+--            seg_o(5) => CB,
+--            seg_o(4) => CC,
+--            seg_o(3) => CD,
+--            seg_o(2) => CE,
+--            seg_o(1) => CF,
+--            seg_o(0) => CG
+--        );
 
 
 
@@ -1070,7 +1299,7 @@ begin
     bin_cnt_distance : entity work.cnt_distance
         generic map(
         
-        g_CNT_WIDTH => 4
+        g_CNT_WIDTH => 23
 
         )
         port map(
@@ -1088,32 +1317,51 @@ begin
             speed_i     => s_spd,
             clk         => CLK100MHZ,
             reset_i     => BTN0,
-            distance_i  =>s_dis,
+            distance_i  => s_dis,
              
             -- press_detect interface
             short_press_i  => s_short, 
             long_press_i   => s_long,
-            clear_press_o  => s_sd_clear
-                     
+            clear_press_o  => s_sd_clear,
+            
+            -- outputs
+            data_o_0       => s_data_0,
+            data_o_1       => s_data_1,
+            data_o_2       => s_data_2,
+            data_o_3       => s_data_3
         );
 
     p_btn : entity work.in_filter
         port map(
-        
-            input     => s_inp,
-            clk       => CLK100MHZ,
-            output    => BTN1
+            input     => BTN1,
+            clk       => s_ce,
+            output    => s_inp
 
         );
+    
+    p_press_detect  : entity work.signal_detect
+    generic map(
+        g_CNT_WIDTH     => 10
+        )
+    port map(
+        input           => s_inp,
+        clk             => CLK100MHZ,
+        clear_i         => s_sd_clear,
+        reset_i         => BTN0,
+        time_short_i    => "0001010000", -- 80ms
+        time_long_i     => "0100101100", -- 300ms
+        short_signal_o  => s_short,
+        long_signal_o   => s_long
+    );
                   
 end Behavioral;
+
 ```
 
 
 
 ## Výsledky
-
-Podarilo sa nám vytvoriť presné počítadlo vzdialenosti, spoľahlivé počítadlo rýchlosti, vytvorili sme debouncing potrebný pri stláčaní tlačidla ktorý však v top module z nejakého dôvodu nechcel fungovať, komplexná kontrolná logika sa má staráť o prepočeť na rýchlosť a vzdialenosť avšak snaženie stroskotalo na prepočtoch medzi jednotlivými typmi ako std_logic, std_logic_vector, unsigned a integer, display driver je použitý z minulých cvičení a riadi displej zložený zo 4 7-segemntoviek.
+Podařilo se nám vytvořit počítač vzdálenosti a rychlosti na jízdní kolo nebo rotoped. Chyba měření rychlosti je velká při pomalé jízdě (zejména <20km/h). Přepínání mezi režimy je možno spínačem BTN1, jehož signál je zpracováván jednoduchým integračním filtrem kvůli debouncingu. Je možné přepínat mezi zobrazením vzdálenosti, rychlosti a nastavením obvodu kola. Velká část projektu byla poskládána z dříve vytvořených modulů z počítačových cvičení.
 
 
 

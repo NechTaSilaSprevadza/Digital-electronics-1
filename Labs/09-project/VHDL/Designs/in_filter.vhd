@@ -17,7 +17,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity int_filter  is
+entity in_filter  is
     Generic (
         g_INT_SIZE  : natural := 4  -- internal buffer size in bits
     );
@@ -31,9 +31,9 @@ end in_filter;
 architecture Behavioral of in_filter is
     signal s_input_sum  : unsigned(g_INT_SIZE - 1 downto 0);
 begin
-    p_in_filter : process(clk_in)
+    p_in_filter : process(clk)
     begin
-    if rising_edge(clk_in) then
+    if rising_edge(clk) then
         if (input = '1') then 
             if (s_input_sum >= 2**g_INT_SIZE - 2) then
                 output <= '1';
