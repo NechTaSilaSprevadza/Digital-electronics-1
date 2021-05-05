@@ -706,7 +706,7 @@ end architecture;
 ```
 
 ### divide 
-Modul [divide](VHDL/Designs/multiply.vhd) je dělič, vnitřně pracující se vstupy jako unsigned, s nastavitelnou velikostí. Pracuje synchronně, při nulovým jmenovatelem zachovává předchozí hodnotu. 
+Modul [divide](VHDL/Designs/divide.vhd) je dělič, vnitřně pracující se vstupy jako unsigned, s nastavitelnou velikostí. Pracuje synchronně, při nulovým jmenovatelem zachovává předchozí hodnotu. 
 
 ![divide](Images/divide/testbench.png)
 
@@ -745,7 +745,7 @@ end Behavioral;
 ```
 
 ### decimal_to_bcd
-Modul [decimal to bcd](VHDL/Designs/decimal_to_bcd) slouží jako převodník z 14 bit vstupu na 4 4bitové BCD výstupy. Výhodou jeho návrhu je, že při vstupu větším 9999 zobrazuje nejmenší 4 číslice stále bez chyby. 
+Modul [decimal to bcd](VHDL/Designs/decimal_to_bcd.vhd) slouží jako převodník z 14 bit vstupu na 4 4bitové BCD výstupy. Výhodou jeho návrhu je, že při vstupu větším 9999 zobrazuje nejmenší 4 číslice stále bez chyby. 
 
 ![divide](Images/decimal_to_bcd/testbench.png)
 
