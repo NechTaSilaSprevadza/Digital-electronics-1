@@ -330,7 +330,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity in_filter  is
+entity int_filter  is
     Generic (
         g_INT_SIZE  : natural := 4  -- internal buffer size in bits
     );
